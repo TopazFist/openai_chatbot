@@ -1,0 +1,112 @@
+So now that we have the algorithm BFS and
+we argued, we showed how it works and
+we argued that it is correct. We looked at the distances it computes and
+they make sense. The question is, again it takes us
+back to the question, is it efficient? We have seen brute force algorithm for computing distances, we analyzed
+the surrounding time, it didn't look good. We said this is not feasible. Now we have come up with another algorithm
+that is simple, the question is, is it efficient? The next thing we need to do is to
+try to understand the efficiency of this algorithm. So, we will look at this algorithm and try to analyze its running time and
+see how long it takes. As again as we showed before is that when
+we have the algorithm the first thing we should do is number the lines, and start
+thinking about how long each line takes. Okay? And before we start analyzing these the,
+the running time, we have to answer a few questions. Remember, that we now to talk about
+a specific implementation, and, because we need to understand how this
+operations are going to be performed. So the first thing we are going to
+assume is that the graph is given by its adjacency list. The graph is going to be given by its
+adjacency list, not adjacency matrix. The second thing I'm going to assume, without loss of generality,
+that this, the, the graph that the, the algorithm is going to run on
+is going to be connected, okay? The, the graph is going to be connected,
+which means there is a path from i, the initial node,
+to every other node in the graph. And the third thing we need to talk
+about is what is the input size okay. When we talk about adjacent sorest,
+it makes sense to, to think about the number of nodes and
+the number of edges. So I will assume that I have N nodes and
+M edges. Okay, so the number of nodes is N and
+the number of edges is M. Now that we know that the input
+size parameters are m and n,. We know it is represented
+as an adjacency list, I assume it is connected,
+let's see now how long it takes. Okay, so now,
+the first line is initialize q on m t q, this is, again,
+a basic operand individual operation, a basic operation that we will assume it
+takes on the order of one step, okay. So, I will say on the order of one step. Remember that all one basically says that
+it takes a constant number of operations. For each node g n v, do something. How many nodes are in the graph? We assume that the number of nodes is n. Therefore, this is going to
+take on the order of n. Each time we are going to basically do it,
+be doing just a simple assignment. This is got, this takes O(1). Line four is just a simple assignment, it
+takes also a constant number of iteration, of, of operation. Enqueue Q, i, adding an element
+to the queue is also a constant number of operations, it is 1, or
+a constant amount, a fixed amount of time. Now we come to this loop here. Now, how many times is this loop
+going to iterate, while Q is not empty? Do the following. Now if you, if you think again
+about the illustration we showed. We had a graph with six nodes, and
+we illustrate this, this algorithm on it. If you go back and
+look at the illustration, you will notice the first thing you will notice
+that each and every node in the graph. Was added once to the queue. We started by putting node zero onto to
+the queue and then we put the neighbors of zero on the queue, and then the neighbors
+of the neighbors and so on. So if you think about the algorithm
+carefully, every node. Is going to be added to the queue. Remember I made the assumption
+that the graph is connected, and this is where that assumption
+comes into the play and allows me to make that statement that every node is
+going to be added once to the queue. Because remember, if the graph is not connected, some nodes
+are not going to be added to the queue. But since I'm assuming
+the graph is connected. Eventually, every node is
+going to be added to the Q, including the original node zero. Okay? So, every node is added to the Q,
+and added just once. So, we know that the Q can have,
+is going to have a size of at most N, or exactly N, actually,
+the number of nodes. Now, the question is. In every iteration,
+what happens to that q? In every iteration,
+the first line in that iteration is d q, so in every iteration, we are also
+going to remove a node from that q. So the q is going to have
+n elements added to it. In every iteration, one node is
+going to be removed from the queue. Okay, so
+if you think about these two statements, that every node is going to be added
+once and every iteration at least, and every iteration exactly one node
+is going to be removed, this, these two statements combined tell us that
+this loop is going to iterate n times. Okay, it's going to take n times. So this. While loop here. Again just to make sure you understand
+the concept if, if we still have the first statement that every node is
+added exactly once on to the queue, but in some iterations, none of
+the elements on the queue are removed. Then I cannot make this statement because
+if in certain iterations nothing is removed from the queue, then I will have
+more iterations and if you don't remove, if you don't have this line here, if you just look at the value of j
+without removing it from the queue, this actually will turn the algorithm
+into a non-terminating algorithm, okay? So again,
+you have to reason carefully about. What's happening to the Q
+to be able to understand, how may times is this
+loop going to iterate? Every node is added exactly once, and every iteration,
+exactly one node is removed. Therefore we have n iterations. How long does it take to remove an element
+from the, from the Q and assign it to j? Again, it is a constant
+number of operations. For each neighbor h of j do,
+how many neighbors can, can j have okay? In the worst case for some, for some nodes we might have
+n minus one, at most n minus one. Of course, we have, when we
+are talking about an adjacency list. There is a given number of neighbors for
+every node. But again, as we said, we are not trying
+to get at the exact number of steps here. We are going to get an approximation. So I can approximate things and
+say this loop, this this line here, for a node j, I can have, at most,
+in minus one neighbors. Okay? In a graph that has n nodes,
+every node has, at most. N minus one neighbors. so this one here I can say it's all of N,
+okay? Because N minus one is all of N. This statement here, the if statement is,
+is a simple, condition to test. It's just a fixed amount of time. This is simple assignment here is,
+fixed amount of time, that adding something to the Q
+is also fixed amount of time. The return is o of 1, okay? So now that we have these numbers for every line,
+how long does this algorithm take, okay? So we have o of 1 here. [NOISE] Then we have this
+loop here is going to take. O(n). This one,
+this line here is going to take O(1). These two, combined,
+they are going to take O(1), okay? Now, we have this big one here, okay? How long is going to take? This is going to iterate n times,
+n times, and in each iteration, we are going to be doing also
+n times plus sum constant. So, we know now that this is going to
+be on the order of n squared. Okay?
+So these constants can go away, this constant, these constants and so on. So it's order of n times order of n is
+going to give me order of n squared. And this line here, is just 0(1). So now I can just sum these numbers, I say its 0(1) plus 0(n) plus 0(1)
+plus 0(n) squared plus 0(n), 0(1). This is going to give me
+that the algorithm takes. [SOUND] Again it's O of n
+plus O plus n squared but, we focus on the dominating terms. n squared is a dominating one here. So, [COUGH] by using this analysis we
+get that algorithm, is O of n squared. So this is our first attempt at analyzing
+the efficiency of this algorithm, and as you can see this is
+a very efficient algorithm. It takes quadratic amount of time in the,
+in the number of notes in the graph. So like before when we focused on when
+we looked at Brute force algorithm. For computing distances,
+remember that even for, for 250 naughts or something like that the algorithm
+would have taken ten to the 59 years. If you have 250 naughts and
+it's going to perform in the order of 250 squared this is going to be
+done in fractions of a second. In, in, in today's computers okay. So this is a very efficient algorithm. And this is using our first
+attempt at analyzing running time that we get an O events squared time,
+so we can say that bvs takes a quadratic
+time in the number of nodes

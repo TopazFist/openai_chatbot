@@ -1,0 +1,117 @@
+Hi again. And last time when we talked
+about brute force algorithms, we discussed how the issue of that it is
+easy to implement a brute force algorithm. Is usually the first type of algorithm we
+come up with for a problem, and it is easy probably sometimes to, to reason about the
+correctness of a brute force algorithm. But, to recall the issue, the serious
+issue of brute force algorithm, which we call it the Achilles
+hill of this algorithms. Is their efficiency. Okay?
+So, what do we mean by efficiency? How do we measure efficiency and so on? So the, the main point I would
+like to make now is that, not all correct algorithms are born equal. We can have many algo correct
+algorithms for the same problem, and they will be different in terms
+of what we call efficiency. And we usually would choose the most
+efficient of all algorithms. I say usually because
+sometimes we are willing to sacrifice a little bit of efficiency for
+ease of implementation, for example. We can have two algorithms,
+four of the same problem A and B. A is more efficient than B,
+a little bit more efficient than B. But B is much easier to implement. Then we might choose, go for b, okay? So, again not all correct
+algorithms are born equal. They can differ in terms of efficiency. And efficiency plays an important
+role in algorithm design. So, imagine that you
+are doing a Google search. Everyone probably has done at
+least one Google search query. And imagine that when you type the,
+the term, the, or terms that you are looking for. Google takes three hours to,
+to give you back the results. Would you use Google? The answer is probably no. We are used today, to,
+to giving the time to Google. Hitting enter or search and it' will give us the results in
+fractions of a second, or a second. And, if, every time we launch Google, or we ask Google to give us results,
+search results for a certain term. If it takes three hours, I can guarantee
+you that Google wouldn't exist today, as a company. At least the way the we know it. Right? So, underlying this technology of Google,
+the Google search engine. Are efficient algorithms that make it
+useful and applicable in today's life. Because again if underlying google,
+the Google search engine. If underlying that search engine
+are algorithms that take forever. To search, to,
+conduct a search every time we used it, no one would use it and Google wouldn't be
+the successful company we know it today. So, the question is, what is efficiency,
+what do we mean by that and again. We had the one of the brute force
+algorithms that we have introduced, the question is how efficient or
+inefficient it is. To, to address the issue of efficiency we
+have to talk about what is efficiency? What do we mean by efficiency? The second thing is how,
+how do we measure it? In terms of algorithms. And the third question is,
+how do we use it broadly? We don't want a framework
+that is very tedious, and very hard to apply,
+because it's not going to be useful, so we would want some sort of
+methodology that would allow us. To do efficiency analysis broadly for
+any algorithm we get, we would want to be able to,
+to analyze its efficiency very quickly. So in our case, in this course,
+we will focus on two types of efficiency. Or we will measure efficiency
+of an algorithm in two manners. One is time, the other is space. The first one is that when we
+have an algorithm, for our specific implementation of the algorithm,
+how long does that algorithm take? The second one is for that specific implementation of the
+algorithm, how much memory does it take? OK?
+Now. Both, both concepts are probably
+easy to understand. When you run the algorithm, or if you have an algorithm,
+how long it takes in terms of time. But that's not sufficient, it's not
+sufficient to say my algorithm takes five minutes and it is deficient,
+because it might take five minutes, but also it might consume terabyte of memory,
+which does not exist. On any of the laptops or
+the desktops that we use today. So time itself, is a good metric to measure in terms
+of efficiency of an algorithm. But also, there is, we have to keep
+an eye on the amount of memory, or the memory footprint of an algorithm
+because that's also a crucial issue. If we cannot load
+the data into the memory. If the, if the algorithm cannot deal
+with the data all in the memory. That's going to be a crucial issue for the algorithm that will probably
+trump the, the time efficiency. Now, notice that I said,
+we talk about the time, and memory requirements of a specific
+implementation of an algorithm. What do I mean by specific implementation? I do not mean. The actual code written in Python or in
+Java or in C plus plus of the algorithm. No, when we discuss
+efficiency of algorithms, we do not touch programming languages. We do not touch the actual implementation
+in a programming languages. What I mean by by implementation, specific
+implementation of an algorithm is. We need to start thinking about what kind
+of details are assumed in the algorithm. For example, we have seen so
+far algorithms that run on graphs. We say the input is a graph. But how was the graph represented? Is it an adjacency list? Is it an adjacency matrix? Is it the set of nodes and
+the set of edges? We will see that the choice of this
+representation, whether you choose to represent the graph as an adjacency list,
+or an adjacency matrix, is going to make a big difference sometimes in terms of the
+amount of time that the algorithm takes. So, here, what I mean by specific
+implementation is, in this case, for example. When you are, when the input is a graph,
+the algorithm, is it represented as an adjacency list,
+or is represented in an adjacency matrix. Still, I am not saying anything
+about how you are going to implement it using python. However, if you assume an adjacency list,
+and you analyze running time of
+the algorithm using an adjacency list. When you write the code, when you
+implement that algorithm in Python, you need to use a data structure in Python
+that resembles the adjacency list or corresponds to the adjacency list. Otherwise, the results that we get,
+or obtain from analyzing running time of the algorithm assuming adjacency list
+are not going to necessarily translate. To what we will see when
+we implement the code. Because we have change
+the representation okay? So to, to repeat. When we analyze the running
+time of an algorithm, we have to make assumption about
+representations of the data. About implementation details and so on,. That are not necessarily how
+we are going to do things, or what is the actual syntax in Python,
+or any programming language we use. But these are necessary, necessary details that we have to know in
+order to be able to analyze running time. I cannot say just make a, make a blanket statement about how long
+algorithm is going to take on a graph. Regardless of how it is represented. So, we have to talk about these things,
+and this is what I mean by a specific
+implementation of an algorithm. Okay, the as I, as I mentioned there is,
+there are two kinds of or two metrics for measuring the efficiency
+of an algorithm at least in our case. Time and memory. Or time and space. How much time does the algorithm take? How much space does the algorithm take? There is often a trade
+off between the two. You can get the algorithm to become
+more efficient in terms of time, if you make use of more memory. Or, you can make use of less memory. But it's going to come at expense
+of losing on the time efficiency. So, this is what we mean when we say
+there is trade off between time, and space often, okay? In this course, we will focus
+mostly on the time efficiency. In fact, most of the,
+most of the course is on algorithms. Most of textbook's on algorithms. Focus on time efficiency of algorithms,
+because we are having more and more memory today with the, with the, with
+the computers even with the laptops and desktops that we use. Memory tends to be not the,
+the issue with many applications. But, at the time or time efficiency
+is going to be a crucial issue. For example, we have seen now brute
+force algorithms where memory is not the issue in these algorithms,
+but time is the issue. So we will, we will never run
+out of memory by trying to compute the distances between,
+between pairs of notes in a graph. You're even using our own laptops. But if we don't do an, an, an efficient or
+an intelligent algorithm for computing these distances, we will, it will,
+our algorithms will easily take years and tens of years and
+sometimes even more than that. So, in this course we will focus
+more on time efficiency and we will. Get the tools, we will focus on
+how to measure time efficiency, we will use mathematical
+tools that will give us and idea on how to apply this methodology
+broadly without having to go through tedious details about how
+long each line in the algorithm is.

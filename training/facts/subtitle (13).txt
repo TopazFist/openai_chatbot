@@ -1,0 +1,110 @@
+Okay, so now that we have these asymptotic
+notations Big O, omega and theta. Now we can use these kind of, of notations
+and their definitions to put upper bounds for example, on the running time of
+functions, and use these to give us a bet, an id, to give us a good idea of how
+the algorithm is going to behave. When we use an upper bound, we are going to say that the algorithm
+is not going to get worse than this, or the running time is not
+going to get worse than this. When we put an upper on
+we put a lower bound, we are basically saying,
+this is the best the algorithm can do. And usually, the algorithms do
+not necessarily have even to achieve these running times. So if I put a lower bound of 2 to the N
+on an algorithm, it doesn't mean that it's going to, it's going to, there are
+instances it's going to reach 2 to the n. It might be that for every instance of the input is going to
+be doing much more than 2 to the n. But still, that makes 2 to the n, it doesn't violate the fact that
+2 to the n is a lower bound. Now, of course, the, the, one of the
+issues that we have to make sure or to, to make certain that everyone understands,
+is that when we put an upper bound or lower bound, if all I'm saying is
+that give me a lower bound and the running time of an algorithm,
+of course you know, one can say 0, every algorithm is going to take
+more than 0 seconds, right? Or more than, it's going to
+perform more than zero operations. Now that is not
+an interesting lower bound. Even though we're saying
+we want lower bounds and upper bounds, we are often implicitly
+asking for the tightest possible, okay? For the tightest running time possible. And when we, let's now go back to the,
+to one of these which we are going to be using most of the time in this course,
+which is the big connotation. And just a, a, a reminder, that we say that F of N is O of G of N, if there exists two constants such that F of N is smaller
+than C times G of N for every n greater than n 0. Now let's use this definition,
+and try to establish for example, some some upper
+bound on some functions. And I will take as an example,
+f of n equal 1,000 plus 17n plus 2n squared. And I want to show, as I said before
+when we were talking about the growth of functions, that we can
+ignore the lower terms, and we can ignore multiplicative
+constant factors. I can ignore the 2,
+17 and thousand, and so on. And just say that this is going to
+grow in the order of n squared. Where does, where does that come from? Or am I just doing some sort of tricks? If we come actually now and understand the
+definition of big O, we will see that in fact, F of N, is O of G of N,
+where OG of N is n squared. How do I get that f of n is,
+is O of G of N in this case? We have to go back to the definition. The definition says that if to
+claim that f of n is O of g of n, I have to find two constants, C greater
+than 0, n 0 greater than or equal to 0. Such that this is going to be
+bounded from above by C times n squared for
+every n greater than or equal to n 0. Now, we can guess some of these numbers,
+but also we can go about it
+a bit more systematically. Remember that I'm interested in finding f of n is
+smaller than or equal to something. All right? So, the way I would do it, is that f
+of n is 1000 plus 17n plus 2n squared. Now I want it to be smaller
+than something, right? What is it smaller than? Of course it is smaller than
+2 to the n for many cases and so on, but since I am going after n
+squared, I have to keep n squared in mind. Right? If I want to establish something that
+is O of n squared, I have to keep n squared in mind and I have to get to
+something that looks like n squared. I can say that 1,000 is smaller than or
+equal to 1,000 n squared. If you take a number, and you'll now
+multiply it by a positive number, of course this is smaller than or
+equal to this, right? 1000 is smaller than, or equal to
+1000n squared, except if n equals 0. Right? If n equals 0, 1000 is not smaller than or
+equal to 1000 time n squared. If n is 1, 1000 is smaller than or
+equal to 1000 n squared. If n is 2, this is where this
+starts growing faster now. 1000 is much smaller than 1000 times 4,
+and so on. So for this to hold, I have to start
+now putting conditions that n has to be greater than or equal to 1. Okay? For me to make this jump that 1000
+is smaller than or equal to 1000 n squared, I have to have this assumption that
+n is greater than or equal to 1. So this is smaller than this, plus 17 n, 17 n also is smaller than 17 n squared. Okay? Again, 17 n is smaller than 17 n squared
+because we have n is, n squared is, is larger than n, and
+we can make this assumption, yeah, okay? In this case, even if n is 0,
+17 n is smaller than or equal to 17 times n squared. Okay? So we don't have to modify this condition. This is still going to hold. I cannot lower it to 0 because
+it's going to violate this one. Plus, 2n squared is smaller than or
+equal to 2n squared, okay? Now, you might be asking now, but also
+1000 is smaller than or equal to 1000n. Or you might be asking, but
+1000 is also smaller than or equal to 1000 n the fifth,
+which is true for this condition. Why did I, you choose N squared? Again, keep in mind that I'm trying to
+establish that this is O of n squared. So I would like to see N squared here,
+because once I see N squared here, now this is a term that's easy for me to manipulate, because now I
+can add these numbers here and say 1,000 plus 17 plus
+2 is 1,019 n squared. Right? So now I have this function,
+that is guaranteed to be smaller than or equal to 1,019 n squared, for
+every n greater than or equal to 1. Again, I can basically say that 1,000,
+plus 17 n plus 2n squared, is smaller than or
+equal to 1,019 n squared for every N greater than or equal to 1, okay? Now, when I look at something like this,
+and look at this kind of definition, now you can start seeing
+some sort of correspondence. This, is F of N. This is G of N. So what do I have here? F of N, now I have F of N is smaller than 1019 times G of N for
+every N greater than 1. The last thing I need to do,
+is try to find C and n 0, but they actually jump at you. Once you look at it like this, because,
+if you look at this, just call this C, call this n 0. We have to make sure that
+this if I call them C and n 0, that they satisfy the,
+the properties of the finishin. The finishin says that C is greater,
+has to be greater than 0. It is greater than zero. For example, if doing this exercise
+I got to minus three here, I couldn't call minus three C,
+because C has to be greater than 0. I call this n 0. N 0 has to be greater than or
+equal to zero. 1 is greater than or equal to 0. So I am done. Okay?
+I am done. I have showed that I can find C, I can find an n 0,
+such that this function is smaller than or equal to C times n squared, for
+every n greater than or equal to n0. The C is 1,019, then n0 equal 1. So, this is what I meant in
+the beginning when I said that we will be doing rigorous mathematical
+reasoning rather than proving. I'm not saying that this is
+a full proof that this is a, that this is true, but we can argue, or
+this is, this is not the technique for proving formally that f of n is g of n,
+and it might not work for many cases. But it's easier for me to reason about how
+why this is smaller than C times this, by using this kind of technique, okay? So here, I just showed a specific value
+of C, a specific value of C of, of n0, such that I can bound f of n from
+above by C times n squared, for every value of n greater than or
+equal to 1. And this is how we would basically
+do this kind of, of of exercise. Now, if this was omega,
+for example if I said, f of n is omega of, of n squared,
+we can do a similar exercise. But then, we shouldn't be focusing
+on showing it is smaller than or equal to something else. We should be focusing on greater than or
+equal to something else, okay? And the last thing I want to say is that,
+if you want to show a function f is theta of g of n, and you have showed that
+the function f f is O of g of n, and the function f is omega of g of n,
+in fact, you are done. Because it's easy to, to see that if f is f of n, is big O of g of n, and f of n is omega of g of n. You can conclude from these two that f of n is theta of g of n, okay? In fact, you can also go this way. If you prove that f of n is theta of g
+of n, you have, in fact, proved that f of n is O of g of n, and at the same time,
+f of n is omega of g of n.

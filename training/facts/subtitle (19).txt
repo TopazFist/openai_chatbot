@@ -1,0 +1,136 @@
+So now we have done the first attempt
+at computing pairwise distancing using brute force. We saw it from an efficiency perspective,
+that's not good. Then we came up with that algorithm that
+uses basically breadth-first search, and we showed that it is actually efficient,
+right? That the running time is
+linear in the number of edges. Quadratic in the number of
+nodes in the worst case. And now that we have, we have come up
+with, with an efficient algorithm, we now go back to our original question, which is
+again, we want to, if we are given a graph that corresponds to our network, Facebook
+network, computer network and so on. We want to check if it is, if it satisfies
+or exhibits the small world effect. And for that,
+remember that the computers or the computational solution was,
+given the graph, let's compute all pairwise distances and
+plot the distribution of these distances. Because once we plot the distribution of
+these distances, we can look at what type of distances we see, what is the frequency
+of every distance, and so on. For example, if, if all the distances
+between every pair of nodes, we see distance one, this, then we,
+we know that it is very, we have very, very short distances. And if we find lots of pairs whose
+distances are very large, then we know, we don't have a small world [INAUDIBLE]
+with that, with that graph. Okay? So now,
+we have an algorithm based on B F S. We are going to use it to compute
+what we're going to call to compute the distance distribution. Right?
+So now we can introduce, we can come up with this algorithm,
+compute. Okay? So we want to compute
+distance distribution. What is the input to the,
+to this algorithm? Now, we have been dealing with
+algorithm that took also as part of the input a node. And we computed distances from this node. But when we are looking at this
+question of the small world phenomenon, we want to compute pair-wise distances
+between every pair of nodes. So there is no specific node here. We want to compute for
+every pair of nodes. So the input is only a graph, okay? What is the output? The output is the frequencies
+of each possible distance. Now how many possible distances before we,
+we write this we have to figure out how many possible
+distances can we have in a graph. We have talked about this
+before that if we have n nodes, then the maximum possible
+distance that we can have, the maximum possible distance
+that we can have is n minus 1. So if you have only one node in the graph, the distances you're
+going to see are zero. If you have two nodes, either there
+is no path between them and the, all the distances are zero, or
+they're connected by an edge and the distance is 1, which is 2 minus 1. If you have three nodes,
+for any pair of nodes, the maximum distance that you can have,
+is two. If you have n, it is n minus 1. So basically we need to return for
+n minus 1 possible values. We need to return the frequency with which
+we see each one of these values, okay? So for distance zero, how many pairs
+of nodes we see at distance zero? For distance one, how many pairs
+of nodes we see distance one? For distance N minus 1, how many pairs
+of nodes have distance N minus 1. So the output is,
+I'm going to store all these in an array. I'm going to call it F for
+frequency, for example. It's going to be indexed from
+zero to size of V, minus 1. This notation is going to say if is
+an array is indexed from zero to, to big v minus 1, the size of v minus 1. Where I'm going to say that if of,
+of D for example, is the frequency of distance D, okay? With a frequency with which distance D appears over all possible pairs of nodes,
+okay? So, how would we compute this
+this output from a graph? So the way to do it, is that again usually
+algorithms have to initialize things. That before I start computing anything,
+what are the frequencies? Before I look at the graphs,
+I have to initialize the, the, this, this array for
+D is 0 to [SOUND]. For every possible distance,
+I'm going to say that ori, initially, for that distance the frequency
+is going to be zero. I haven't touched the graph yet,
+I haven't computed any pairwise distance. I know that every possible distance
+now appears with frequency, with frequency zero. After this, what do we want to do? We want to compute pairwise distance
+between every pair of nodes. So the way we are going to do it,
+since we have seen BFS. How does BFS work? BFS takes a node, and compute the distance
+from that node to every other node. So now, if I want to compute
+the pairwise distance of every pair of nodes that involve node i,
+I can run BFS when, for starting from node i,
+compute the distance to every other one. Now I know the pairwise distance
+between i and every other node. But I'm not done because now
+I have to compute the dis, pair-wise distance from every
+node to every other node. So the way to do this, is by basically
+going, looping for each node I in V, okay? We can say do here. For each one of them,
+we are going to do BFS on G and Node I. When we run BFS, so
+I'm calling a function here, BFS, that we had introduced before,
+we're going to call BFS on G and i. Remember, what does BFS return? It returns it the distances
+from i to every other node, and I'm going to tell it
+to return something like D. That I'm going to call now, it returns
+something that I'm going to store it. N in dist for example, okay? So I'm going to store in some sort
+of list or array that's called dist. Now what, what are the values in dist? Remember that dist is going to be
+indexed by every node in the graph. So dist sub j is going to be
+the distance from node i to node j. Right? So that value, if I look again at dist
+of sub G, this equals the distance between I and G, right? So this might be like five. It says that the distance between I and
+G is five. If the distance is five,
+then I need to have that f of five. I need to add one to it because now
+I know there is one node that has this times five. So I now need to go through
+every element here. And this one. For each j and V do. If I look at this g, I know this
+is the distance between IMJ and that distance whatever it is, I need to
+update the frequency of that distance. So now the frequency of this distance. So the frequency of five for example, is now incremented by 1 because we have
+seen one more pair that has that distance. Okay? So for each i, I do BFS from i to every other node computing the distance
+from i to each one of them. Then for each these, for these distances, I take them one at a time, and
+I update the frequency of the distances. So if I see dist of j is five,
+then I add one to f of five. If I see for another node, dist of j is three, I add one to f
+of three, and I keep updating them. Now once we are done with the first
+node i, then we go to another node, and do the same thing, another node,
+we do the same thing. Once I'm done here, I can return f, right? So this function here, this algorithm
+is going to run BFS from every node in the graph, thus computing the pairwise
+distances between i and every other node. And looping over all possible nodes is
+going to do it for every pair of nodes. And I will update the, the distances in F, their frequencies, I always add one
+every time I see it and return F. Notice that I am indexing this F by
+this dist of J because dist of J is the distance, it's the value of a distance
+to node J, so I can use it as the index. This dist of g,
+what are the possible values of dist of g? It can be zero, one, two, three,
+all the way to the size of v minus 1. So I'm not going to be exceeding or doing
+anything wrong with indexing this array. Okay? So this is an algorithm that now after,
+after this sequence of attempts at computing
+distances, analyzing efficiency and so on. Now we finally have an algorithm that
+is going to make use of an efficient algorithm for computing distances,
+that will basically tabulate, or the distance distribution for us, okay? Now that we have done this, what is
+the running time, how long does it take? And again, now it is very simple because
+we have done this exercise before. For D equals 0 to V minus 1, do this. If I assume the graph is
+given by its adjacentcy list, it has N nodes, M edges and
+connected and so on. This is going to do on the order
+of N operations, right? For every node is going to,
+is going to update this value, so it's on the order of N operations. This is going to be on
+the order of N operations. This here, is order of n. This, how long does this take? Some might think it takes one operation
+because I'm just calling a function and returning a value, and
+this is a common mistake. No it doesn't do one operation,
+it takes as long as BFS takes. Okay?
+How long does BFS take on a graph that has n nodes and m edges? As we said, if I assume the number of
+edges is greater than the number of nodes, this takes O of m operations. And this here takes O of n. Okay? So, and this is of course, 1 and 1. So what does this add up to? We have O of n plus, for this one, then we have O of n times m plus n. All right. Now this is the dominant term so
+we can remove this. And as I said if m is greater than n, if m
+is greater than n, I can remove this n and basically we get an O of N times m times,
+okay. So we will get here. Again I can drop this n because
+if m is greater than n, I end up with n times m, and
+this will be the running time. So when again, when the graph is very
+dense, m is a node of n squared, in the worst case it's going to be
+cubic in the number of nodes, okay? Which is still very good algorithm for
+computing all pairwise distances in an undirected graph with
+no weights on its edges. So we have this and again for,
+if the graph is not very dense, it's going to be actually
+much better than cubic. Okay? So now, again we started
+with the problem of is the, is the world small for a given network? We for, we, we understood the problem,
+we formulated it computationally and then we started attempting
+to come up with algorithm. We came up with brute force algorithm, showed it's not the efficient, came up
+with BFS, show that it is efficient. Once we have shown that it is efficient, now I can make use of this function and
+to, to solve our original problem. And we get a very efficient solution for
+it.

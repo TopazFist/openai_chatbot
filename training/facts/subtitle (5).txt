@@ -1,0 +1,95 @@
+So, in the last lecture we talked about
+graphs, and we undirected and directed graphs, how we representing using them
+adjacency, less than adjacency matrix. And in that lecture, also, we, we dealt
+with these two examples of graphs. This is an undirected graph,
+on four north, has four edges. This is a directed graph with
+four nodes and three edges. So now, we need to introduce a few
+more concepts about graphs that we will need them in order to define
+the problems that we will be dealing with, the first of which is the concept of of,
+of neighbors and degrees. So, when we look at an undirected graph. We say that two nodes are adjacent or neighbors, if there is
+an edge that connects them. So for example, in this graph nodes
+zero and one are neighbors, nodes 0 and 2, 3 are, are neighbors, nodes 0 and
+2 are not neighbors, okay? And the second concept,
+we talk about is the degree of a node. What is the degree of a node
+in an undirected graph? In an undirected graph the degree of
+a node is the number of neighbors it has. Okay?
+So, if I look at this here and I look at, each one of the nodes I can tabulate
+their degrees, [SOUND] by counting for every node the number of neighbors it has. So, how many neighbors
+does node zero have? It has one neighbor, two neighbors. How many one has? It has two neighbors also, 1 and 2. Two has two neighbors, 1 and 3. And three has two neighbors as well,
+0 and 2. So this are the degree of a node. When we talk about undirected when
+we talk about directed graph. Then we talk about. We don't talk about the degree usually. We talk about two types of degrees. There's an in-degree and
+there's the out-degree. The N degree of a node is the number
+of edges incoming into that node, and the out degree of a node, is the number
+of edges outgoing of that node. So, if we look at,
+again as before, we can tabulate. Now we can look at the four nodes. And ask for each node, what is its
+in-degree, what is its out-degree. What is the in-degree of node 0? How many edges are incoming into node 0? There are none. What is the in-degree of node 1? There are three edges incoming into
+node 1, so, it is in degree 3. What is the end degree of node 2? There are none incoming into it. Same thing for 3. There are no edges incoming into it. These are the in-degrees. What are the out-degrees? Node 0, there's one edge outgoing of it. For node 1 there is,
+there are no edges outgoing of it. And for node 2, there is 1,
+for node 3, a 1. So, for undirected graph we talk
+about the degree of a node. For a directive graph we talk about
+the in-degree and out-degree of a node. Okay? Now the, the last concept we need
+to introduce in this case, for the, for the small world problem,
+is the concept of connectivity. Again, what it does it mean for
+two, for two nodes to be connected? What is the path between two nodes? What is the length of
+a path between two nodes? And ultimately what is
+the distance between two nodes. And for this, we can illustrate it
+on the undirected graph for example. [SOUND] And,
+let's assume that we have this graph. G, and let's take two nodes
+that are different and designate them as our source and target. Again, in, think about it in
+the case of the GPS system, or, in the GPS system is your current
+location and the destination. In the case of the small world phenomenon
+on Facebook graph, we want to compute for every pair of nodes the distance. So, we can take any pair of nodes and
+consider them as our two designated nodes. So let me take now nodes 0 and
+2 from here. So I will take, I will call them I and J. So, I have 2 nodes in G that are 0 and 2. And I want to ask the question, of course,
+what is the distance between node 0 and 2. Before we, we answer that question we
+have to talk about the concept of a path. We say that there's a path between
+two nodes, I and J of length K. If there are K minus 1 nodes,
+K minus 1 nodes, U1, U2 all the way to UK minus 1. Such that, if I put them somehow between
+I and J, I have an edge from I to U1, an edge from U1 to U2,
+an edge from U2 to U3, and so on. And from UK minus 2 to UK minus 1. And finally, from UK minus 1 to G. If you count the number of edges on this
+path, there is one, two, K minus 1, K. This is a path of length k. So, we say there is a path of length
+K between two nodes, I and J. If I can find K minus 1 nodes,
+other nodes in the graph. Such that I can arrange in a way,
+that there is an edge from I to U1, U1 to U2 and so on. Okay?
+So it's a matter of getting K minus 1 nodes, a subset of K minus 1 nodes,
+arrange them in such away; that between every two consecutive nodes in
+that arrangement, there is an edge. If this is the case we say there's a path
+from, between I and J of length K. I'm illustrating things
+on undirected graphs. In the case of directed graphs, when we. If I want to say there's
+a path from I to J, from I to J, then I have to
+take edges that, indeed exist. And I transverse their, their direction. This on the direction in the graph. So I cannot put this if
+there is no h from I to U1. I cannot say that is a pass from I to J
+if the edges are connected like this. Okay. In the case of directed graph
+it has to be from I to U1, U1 to U2, U2 to U3,
+UK minus 2 UK minus 1 and so on. Okay? So, this is what it means for a path
+of length to exist between two nodes. Notice that the length of the path is
+measured in terms of the number of edges. The key is the number of edges. On that path, okay? We say that a path is simple if it does
+not use the same node more than once. It does not use any node more than once. So, I can have a path from 0
+to 2 that goes 0, 1, 2, 3, 2. This is not a simple path. It's repeated at least
+one node more than once. Okay? And directed graphs, as I said,
+when we poke at the path, we have to respect the length,
+the direction of the edge. Finally, now that we have
+defined what a path means and what is the length of a path,
+the distance between two nodes, the distance between node I and
+J is the smallest K. Such that there is a path of
+length k between I and J. So the length, the distance between 0 and 2 is the smallest K such that there
+is a path length K between 0 and 2. The smallest K for example I can think
+about it that could be a candidate is 1. Then I ask myself is it a path
+of length one between 0 and 2. No it isn't, because a path of length one
+means there's an edge between 0 and 2. So that I put an X on it,
+there is no path of length one. Then I move to length two. I ask is there a path of
+length two between 0 and 2? Yes there is. There are in fact two of them. So that the distance between 0 and
+2, is 2. Because it's the smallest K, for which there is a path of
+length K between 0 and 2. Same thing again for directed graphs. It's what is the smallest K, for which
+there is a path from I to G, of length K. Now that we have defined, what is the
+connectivity, the connectivity in graphs, and the distance between
+two nodes in a graph? Now that small world problem
+is cleanly defined as follows. The input is just a graph and undirected graph whose nodes correspond to
+the accounts on Facebook for example, and the edges correspond to
+friendship on Facebook. And the output is the distribution
+of all the distant, the pairwise distances of
+nodes in that graph, okay? So now, that we introduced
+these concepts and graphs. Now we are capable of formulating
+the problem in a graph theoretic sense. And now,
+we can proceed to solve this problem. And now ,we are going to go on for
+our first attempt at solving it.

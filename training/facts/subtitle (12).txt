@@ -1,0 +1,126 @@
+So as we said last time, about the running
+time of the brute force algorithm for computing distances, is that you know,
+we got a very complicated formula. But, at the end what we could say also,
+one of the things that we could say without
+going through all these complications and details, is that the running
+time of that algorithm. Is at least 2 to the n
+minus 1 if you remember. We said because the algorithm was going to
+try every possible subset, of size and every possible subset of
+a set of size n minus 1. And, it was going to, inspect each
+one of them and do a lot of work. So even it's going to do definitely
+more than, 2 to n minus 1. But, we can say that, we can put a lower bound on the earning
+time that is 2 to the n minus 1. Now why does that matter? Because we have shown already, that when
+we talk about growth of functions, that 2 to the n is growing actually very, very
+fast, that even when n was 256. It will take 10 to the 59 years, for a computer that can handle 10
+billion operations a second, okay. 2 to the n, 2 to the n minus 1,
+are basically the same, it's just that 1 is divided by 2, okay. So, using this kind of technique
+by putting lower bounds and upper bounds on an algorithm,
+is very helpful because. As I said from the beginning, that we're not trying to get at
+the exact running time of the algorithm. We're trying to get an approximation,
+that gives us a good idea about, how long that our algorithm
+would take once we implement it. So in the case of brute force algorithm. Using that kind of technique by
+bounding the running time from below, it told me that this algorithm is going
+to take at least exponential amount of time 2 to the n. Order of 2 to the n. And that's enough for me to know,
+that this algorithm is not practical, is not worth implementing and
+giving to the user. In the same sense also we can usually put
+an upper bound on the running time, by, so that we get an idea of, how much time is this algorithm going to take in what
+worst case, in the worst case, okay? So, how fast is this function going to go? When we have a function like,
+5n plus 3n squared, minus 17n cubed, minus 19n to the 17, you know,
+that's a function that, you know, we have to start plugging in
+values of n to evaluate it. But, if we use this kind of lower
+bound and upper bound technique. We can get the, an easier function
+that we can understand better, it's much easier to say,
+2 to the n grows fast and look at a function like 2 to the n and
+decides that it grows very fast. Than a very complicated function
+that has summation and combi, and combinations and choose k and
+choose n infactorial and so on. Okay. So for that there is there is a set
+of mathematical tools that we use, which we refer to collectively
+as asymptotic notations. Asymptotic notations allows us,
+allow us to put upper and lower bounds on functions, as well
+as the two bounds as the same time, that will bound these functions and
+will give us an idea of. How fast the function grows? How bad can it be? Or how good it can be, as well? Okay?
+So, I will start with with the, with the first one of the simp, there are three main asymptotic
+notations that we will use. The first one is, corresponds to putting
+an upper bound on the running time of a, of a, of an algorithm. So if I have the, if I have an algorithm,
+I have analyzed the running time of the algorithm, and
+I get a function of the input size. So we'll assume that the input size,
+that the parameter that corresponds to input size is n, and I will assume
+that I have done all my work, and I got that the running time is f of n. Okay, some function of n, okay? Now I can plot this function,
+as a function on n. And this is f of n here. And it grows like this, okay? So this is f of n here. Okay.
+This is, actually let's call this y here. Because we can plot different functions. So this is a function f of n, but
+again f of n might be, let's say for example f of n might be, like, you know, million plus thousand n plus 3n squared. Okay. Now I want to put an upper
+bound on this function, okay. I want to put an upper
+bound on this function. I want to basically to
+get another function, that once I plot it here or
+I compare it to f of n it will grow. Faster than f of n after some point, okay? So in the asymptotic notations
+when I have a function f of n, I am interested in getting a function
+g of n, and getting a function g of n. That except for
+a few values of n in the beginning. Except for a few values of n in
+the beginning, after a certain point the function f of n is
+going to grow at most as fast, as most as fast as some constant
+times that function g of n. Okay, so, remember, again,
+in asymptotic notations, I have f of n. It's a function that someone analyzed, or the running time of
+an algorithm I obtained, okay. Someone analyzed the running
+time of a certain algorithm, got the function f of n. I am interested in quickly getting some
+sort of upper bound on that function, so that I can understand, how bad can it be? Okay? Now, in asymptotic notations, we are
+interested in getting another function, g of n, that will bound f of n from above,
+that, when I draw them, g of n is going to be on top of f of n,
+but, again, with the caveat that, if multiplied by a constant, c. Okay? So, there's a constant, c, here, that if I multiplied by g of n,
+is going to be higher than f of n. The other issue, as I mentioned, is that. In the beginning,
+I can tolerate a few values of n, because remember we focus on the growth
+of function as n goes to infinity. I am not much concerned with what happens
+when n, with n is very small, okay? So when we talk about
+putting an upper bound, we are interested basically
+in this function g of n. And we have to think about two
+constants at the same time. One constant that we are going to call n0,
+and other constant that we
+are going to call c. And we want that function g
+of n such that, except for that these values here smaller than n0, or for every value of n greater than or
+equal to n0, for every value here. I want f of n to be at
+most c times g of n, okay. Or in other words we want,
+we want a function g of n. Such that, there exist two constants, c and n0, where f of n, is at most, c times g of n for every n greater than n0. Kay? Again, if we look at this picture here,
+it shows clearly that, if you ignore all the values of n that
+are smaller than n0, if you ignore them. And just focus on values of n
+greater than or equal to n0. You will notice that f of n is
+always smaller than c times g of n. And this is what this
+definition is saying, that we have a function g of n,
+two constants c and n0. C has to be strictly greater than 0,
+n0 is greater than or equal to 0. Such that f of n is smaller than or
+equal to c of g of n, c times g of n, for
+every n greater than or equal to n0. This upside down A is basically,
+in English, we say, for all, or for every value of n
+that is greater than or equal to n0. If we have this scenario. If we have this scenario,
+we have a term for it. We say that, in this case,
+in this case, f of n is big O of g of n. And this is the first asymptotic notation
+I'm introducing, the Big O notation. f of n is O(g(n)) if we have
+this scenario or if we can, if, if I can find two constants c and
+n0 such that for every n greater than or equal to n0, f of
+n is going to be at most c times g of n. Okay? So this is the first
+notation that we can use. And it tells us to put an upper bound,
+on the running time of an algorithm. Again, in this notation, we will ignore
+finite set of values in the beginning, and focus on the running time as the,
+as the input size grows. Okay? So this is the first,
+first asymptotic notation that we, we learned, and
+again it's about putting an upper bound. This is the definition. If you want to put an upper bound on a
+function f of n, you find the g of n, and the c and then n0,
+that will satisfy this definition. Okay? In the case of the brute force
+algorithm that we devi we devised for the distance problem,
+we actually looked at the lower bound. We said that that algorithm will take
+at least 2 to the n amount of time. So what does it mean to put a lower bound? We can look at the same thing, but, we can
+think about g now, c times g of n being. A lower bound on this, and in this case, we can think about it as,
+I can think about it as the following. If I have f of n like this here. And I can find, a g of n for example c times g of n. And I can focus on the n0. So now I found a, a function g of n such
+that f of n is going to be greater than or equal to c time g of n. Once n is greater than n 0. In this case here, again it's similar,
+definition, we need to find the g of n and two constants,
+such that f of n is greater than or equal to c times g of n for
+every n greater than or equal to n0. In this case say that f of n
+equals omega of g of n, okay? So omega is for lower bound, okay? The third asymptotic notation is that,
+I can take this function, f of n. And now I can bound it from below, and from above, by two different constants
+multiplied by the same function g of n. Okay? So we have now c1 times g of n and we have c2 times g of n, and
+I say f of n is bounded from above and below by g of n times
+two different constants. In this case, what we have is that f
+of n is, we say it is theta(g(n)). It is sandwiched between c1 times
+g of n and c2 times g of n. So we have these three asymptotic
+notations f of n equals theta of g of n, f of n equals big O of g of n. And f of n equal omega of g of n. This puts a lower bound. Omega puts a lower bound. Big O outputs an upper bound. Theta sandwiches the function between
+a lower bound and an upper bound. And these are the asymptotic notations
+that we will be using, in the course and mainly we will be focusing
+on an upper bound. Okay?

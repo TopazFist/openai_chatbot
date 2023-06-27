@@ -1,0 +1,142 @@
+Hi, my name is Louie. I'm going to be teaching algorithmic
+thinking with my colleagues, John Warren and Scott. This is a course based on new material,
+and a course that we started
+here at Rice in 2011. And basically motivates the use of
+discrete math and algorithms in computer science where we motivate them actual
+with the use of interesting applications. The course is divided into two parts. So we'll have Algorithmic Thinking One and Algorithmic Thinking Two,
+each part will have two modules in it. Within each module, we will emphasize the discreet math,
+the algorithms and the application. And in the set of videos that
+you will have in every module, you will be learning about
+the mathematics and the algorithms. Then you will have, the graded part of that module
+will consist of three parts there. We have the Coursera style quiz that asks
+you questions about the mathematics and the algorithms from
+a theoretical perspective. Then we will go into a project where
+you will be asked to implement some of the algorithms in Python. And then the last part
+will be the application, where you put it all together in the
+context of an interesting application and interesting data,
+from a real world example. >> Hi, you probably wonder
+what happened to Louie. Even as I talk right here Louie is in his
+office answering questions from dozens of Rice students about the on campus
+version of algorithmic thinking. So he's asked me, I'm Joe Warren,
+I'm one of the instructors in the course. To kind of walk you through the nuts and
+bolts of how the class works. Now, you've probably seen me before, if you've taken the two previous
+classes in this specialization, Introduction to Interactive Programming
+in Python and Principles of Computing. If you haven't, I'll be the one that
+you'll probably see hanging around the forums, so
+don't be shy about saying hi. I hope I'll have a chance
+to interact with you. Okay, let's walk through kind of the nuts
+and bolts of how this class works. So, the first thing to understand is that
+class is actually in two parts, okay? There's going to be
+an eight week class total, there'll be four weeks in part one and
+four weeks in part two. Over the entire class, you'll do four
+modules, kind of, four, kind of, coherent pieces of work. Each of those modules will take two weeks. So, in part one, you'll actually do
+two modules each that span two weeks. So here we are sitting at Week 1 and you can see that what you need to do
+in Week 1 is fairly straight forward. In particular you need to go through and
+watch this set of videos that discuss the topics covered in this
+module at a fairly high level. Once you've seen those videos then
+you need to work on Homework 1. And although this is called a quiz,
+we should warn you that this homework is actually fairly meaty,
+it's going to take you a while to do. It's designed to be hard, it's going to
+challenge you to understand the concepts that were discussed in these videos,
+all right? For week one, we also have a couple of
+videos here that cover concepts that you should have learned in either an
+Introduction to Interactive Programming in Python or Principles of Computing. In particular, there'll be certain coding
+styles and standards that you have to follow when you're writing
+your programs for this class. That's going to be enforced
+by the machine grader and so you can watch these videos here. We also expect you to know how
+to do plotting inside Python. And finally we also expect you to be
+comfortable doing peer assessment. You should have done this in IIPP and
+in particular, we'll use peer assessment to grade the
+application which you do for the class. That's going to be where the actual
+computational thinking takes place. We're going to expect you to
+know how to do peer assessment, we'll also give you instructions
+as you go along the way. All right, you finished week one,
+you're ready to move on and now work on the second part of module one,
+which will consist of week two. So in week two, there will be two lessons. The first lesson corresponds to doing
+a programming project in Python. Module one, we're going to look and essentially computing properties of
+graphs and there will be two things. There will be a description of
+the project, very detailed, that tells you exactly what to do. And then when you actually finish your
+implementation and you're ready to submit it for a grade, click on this link, it'll
+give you instructions on how to submit. Once you finish the coding part of this, you're now going to move
+on to the application. The application is where you're actually
+going to engage in computational thinking. You're going to use your code
+that you built in the project to analyze some particular
+computational problem. In this particular case, we're going
+to give you some citation graphs. I'm going to ask you to do some analysis
+of those citation graphs to understand how they arise. And in particular, we have a very detailed
+description of what you should do for the application here,
+you should read that. When you're ready to submit your answers,
+they'll include plots and kind of textual answers,
+you'll click on this link. Your submissions will be graded by your
+peers, it's going to be peer-assessed. So one thing you're going to see
+here is we can't grade these answers using a machine. So what we're going to do is we're going
+to rely on your peers to grade this. To aid you in doing a good job of grading, we have a very detailed solution
+that appears right here. And so we'll talk a little bit more
+about this process when we get down and discuss the class honor code. Okay, we covered kind of
+the work flow of a single module. I want to now talk about some resources
+that we have available that will help you be successful in this class. So you need to pay close attention here. So if you go over here
+on the left hand side, you see basically a tab
+which says Resources. If you click on this it opens
+up several sub-headings. So for this class, we have lots
+of resources that are available, if you click on the first link
+here you get the class notes. So as Louie lectures, he will actually have PowerPoint slides
+that accompany all the lectures. Here are links to those slides. There will also be some extra
+PDFs here that actually contain information that you can use
+to survive in this class. So whenever you're stuck and you don't understand some particular
+comment come over here and look at the class notes and use that
+to help answer questions that come up. You really need to pay attention
+to what's going on here. Another thing is if some of the math
+concepts are a little hard for you but you don't feel like going back and
+taking Principles of Computing. We have a collection of notes here from
+Principles of Computing that you can reference, kind of catch up on math
+concepts related to this class. Another thing, okay, we have a collection of notes here
+on coding issues related to this class. The most important thing is,
+we're going to enforce coding style guidelines on the programs
+that you write for this class. It's going to be enforced
+by the machine grader. So you need to read those style guidelines
+to understand why you're getting points off on your code whenever
+you submit things. And we have some more interesting
+helpful information, for example if you're interested in setting
+up a Python development environment, feel free to jump in there and
+read up on this. I should say that in an Introduction
+Interactive Programming in Python if this was computing we typically use
+CodeSkulptor which is an environment providing Python in your web browser. For this class, if you've never used
+kind of a desktop Python development environment, it's the time to learn. Go in and grab yourself a desktop
+Python environment, and set it up and start learning to use
+the Python on your desktop. This link right here gives you lots of
+information about how to go about that. We've always had a kind of history of
+putting together supplemental exercise to kind of augment what
+you've learned in here. Further Activities has
+a collection of notes, problems, things to do that you can use to kind
+of augment your learning in here. Nothing required just feel free to go and
+look through it. Okay, I want to finish off
+this lecture by talking a little bit about the class Honor Code. So the point of taking
+this class is to learn. So the most important component of
+the Honor Code is do your own work. Don't copy other people's work, don't
+search for work solutions on the web. If you use other people's work, solutions
+you find on the web, you're cheating and the interesting thing is you're
+really just cheating yourself mainly. You're robbing yourself of a chance to
+actually learn the material on your own. For the current way the class is set up,
+I want to also point out one other important aspect of the Honor Code
+and we'll scroll down here to the bottom. So you will notice that and when we do an application there's
+a description of the application that's actually the pure assessment including
+a grading rubric where you submit. And then there's actually
+a class page with the solution. So the solution is sitting right
+there inside the class materials. The way Coursera is set up right now,
+we can't unlock this until you've done your first submission
+of the peer assessment. So you're on your honor not to look at it. You certainly can, but what's going to
+happen is you're going to rob yourself of the chance of actually
+doing the application. And that application is really
+the core of this class, it's where you learn how to
+do computational thinking. So here's what I suggest you do. Read the application description,
+make your best attempt at it. Submit your answers then go and
+read the solution. Understand what the solution is, because that will help you do a good
+job then of grading your peers. Then go back and grade your peers. Now if for
+some reason you need to go back and do the application again,
+say you don't score the minimum score. Go back and redo the application again. Don't reference the solution, think about
+what you saw when you saw your peer solution and
+your sar solution and redo it. And most importantly, go through and
+generate your own plots, don't copy our plots please, it defeats
+the purpose of what's going on in here. We want you to learn we think
+the application will really help you learn a lot about how
+algorithm thinking works.

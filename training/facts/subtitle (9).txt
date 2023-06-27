@@ -1,0 +1,150 @@
+Okay, so
+now that we talked about efficiency, and we said that we're going to focus
+on efficiency in terms of time. We talked about as,
+as a function of the input size. We talked about it as a,
+as measuring the number of operations. We talked about it as a,
+as a analysis under worst case scenario. We are going to go back to the,
+to the starting point that, that actually launched us into
+this discussion about efficiency. Which is the brute force algorithm for computing the distance between
+two given nodes, I and G. Remember that our problem was,
+given as input, an undirected graph G, and two specific nodes in the graph, I and
+G, we wanted to compute the distance. Now we want to analyze the running time. We want to get an estimate of
+the number of operations that, that algorithms performs, okay? So, here on the board,
+we have that algorithm. I'm not showing the name of the algorithm,
+or the input and output. Remember the,
+the algorithm is brute force distance. The input is a graph G, and
+two nodes in it, I and G. And the output is the distance, DIJ. This is the algorithm that,
+that we, we, we gave before. It has all these details. The first question we need to ask, again when we analyze the running time of
+the algorithm, is, what is the input size? As I said, when we deal with graphs and
+graph algorithms, it is, it makes sense to assume that input size is the number
+of nodes, and the number of edges. So the first thing I'm going to assume is
+that the graph has N nodes and M edges. Okay? So, the graph has N nodes, N nodes and M edges. The second thing as we said,
+we have to make, we have to talk now about
+specific implementation. And as I said, that means we have to
+talk about implementation details, or how, what, what kind of assumptions
+are we making about this algorithm? Now notice that for
+this algorithm, you know? Most of it is, is clear, you know,
+I don't need to talk about, or think, reason to much
+about this assignment. Because I'm assigning the value 1 to K or
+returning infinity and so on. One of the assumptions I have to make
+is about how is the graph represented. Okay? And in this case, I'm going to assume that the graph is represented as an adjacency matrix [SOUND] okay? Everything else is probably clear here. And then the third question again
+is that under what scenario are you going to analyze. As I said before we're going to
+focus mainly on worst-case scenario. So the first question is, what's the worst-case scenario
+in the case of this algorithm? Or, of all graphs of size N and
+M, N nodes and M edges. Which graph is going to
+force this algorithm to run the maximum amount of time? This is the main question. Now, notice that this algorithm
+is doing certain loops here. It's going to look at every
+subset of K minus1 nodes. It's going to look at every permutations
+or arrangements of these K minus 1 nodes. It's going to keep doing this
+while incrementing K from 1 to n minus 1 as we said last time, where N
+is then size of V or the number of nodes. So, what would force this algorithm to
+perform all the, all the alteration here. Which means, all N minus 1 alterations, what will force it to look
+at every possible subset. What will force it to look at
+every possible permutation. If you think about it carefully,
+the answer is, when I and G, the input nodes have
+no path between them. Okay? Because if I and J are neighbors,
+for example, if I and J are neighbors, then this algorithm, when
+it starts, it's going to say K, K equal 1. It's going to look at all subsets first of
+size zero, which basically means nothing. It's going to check if
+there's an edge I and J. Since they are neighbors,
+it's going to find it. And is going to get to this point if
+IsPath is true, it's going to return K. So, all that algorithm is going to do,
+do one iteration here, and one iteration here, and one iteration
+here, and it's going to finish. So, is less going to
+actually be the best case. If I and G are neighbor that's
+the best case for their algorithm. But, how do I force it to look
+at every possible subset of every possible size between one and,
+and minus one. And every possible permutation. Again if there is no path between I and
+J it means there is no path of length one, no path of length two, or three,
+or four, or five, or N minus 1. So it's going to be doing all of this. So worst case scenario [SOUND] I and J the two input nodes, are not connected. Or, in other words,
+there is no path between them. There is no path between them. Okay?
+So, now that we have answered these three questions, what is the input size? What do we mean by the representation, the
+specific rep the specific implementation? And what kind of,
+of case we are looking at. Now we can move on and
+start counting operations here. Okay, we can start counting operations. And at the end get some sort of
+function in terms of N and M. Again it might just be a function of,
+terms of N or M or both. Okay? So, now that I have answered these
+I'm going to erase this, and we are going to start analyzing
+the running time of this. And looking at each one of these lines and
+deciding on the how many steps or how many operations,
+the algorithm is going to take. Okay, so the first thing we need
+to do is number the lines and spe, talk about specific lines. [SOUND] Okay. So, we come, the first thing we can do is
+first focus on the simplest lines, okay? As I said, when we do learning
+time analysis we make that big assumption that all,
+all individual operations. Take fixed amount of time regardless
+of the size of the input. So if I look at individual operations
+here for example, assignment eh, comparison is K smaller than,
+than the size of the, these assignments. This assignment here,
+this assignment and so on. These are all,
+each one if them take one operation. So, I can now start
+thinking about the numbe, counting the number of operations here. [SOUND] How many operations
+does this line take? It takes one. I'm assuming it takes one operation
+regardless of fixed amount of time regardless of input size. What do I mean by a fixed amount of time? I'm going to count it as one. Okay? This line three here, line three is
+going to take also fixed amount of time. I'm going to label it as one. This line here is just one
+individual operation, one, one step. This line, its path taking through,
+is going to take one. This if statement here,
+I'm checking if this if this edge is not in E, I will assume
+that it takes one operation here. [SOUND] Is path takes false, I'm assuming it takes one operation, okay? And IsPath True, I'm going to ta,
+assume it takes one operation. And return K is one operation,
+K plus 1 is one operation. We need to adjust the numbers here,
+this is 13. It's one operation. And this is 14, one operation. Okay? Just to make sure we can label [SOUND]
+okay? So, we have 14 lines in the algorithm. We started with the simplest ones. Again, assignment, assignment here,
+assignment we are asking if it, it equal, we're checking equality assignment,
+assignment, return and so on, okay? So we're looking at these ones,
+actually we can be a bit more details. Here it's not just assignment, we're
+adding a number and then assigning it. So, we can say it is 2 here,
+and so on, okay? But you know, in the,
+when we do the analysis, we'll notice that one versus two
+is not going to make a difference. Okay?
+Now we start looking at the other ones. Okay?
+So we have a while loop here. It's going to loop again, K starts at one,
+and it's at the size of V. Remember, the input size is N and
+M, it has N nodes. So this is going to be n, okay. The size of V is N, and K is going to go from 1 all
+the way to the last number before N. So it's going to go to N minus 1. So, K is going to take values 1,
+2, 3, 4, until N minus 1. So this is going to loop here or
+iterate N minus 1 times. Okay? Now we come to these two,
+we have two, these two lines here, and we have this one. This one is easier, is simpler. For L equals 0 to K minus 1. How many times in this
+loop going to iterate? L equal to k minus 1. 0, 1, 2, 3, 4, until K minus 1. That's K times. This is going to iterate K times. Okay? This iterates K times. Then we have these last two here. And here, now we have to make use of some
+mathematical results without proving them. These are very important results. For every algorithm that looks at subsets,
+permutations, we need to make use of them. Which is, one of them is that the number of subsets of a set of size K. Sorry, the number of
+subsets of size K of a set. Of size N is, what we call, N choose K, which is N factorial divided
+by N minus K factorial times K factorial. Okay? So if I have a set of size N, and I'm looking at every possible
+subset of size K from that set. The number of such possibilities of such. The number of such subset
+is what we call N choose K, which is N factorial divided by N minus
+K factorial divided by K factorial. This is the first result
+we're going to make use of. The second one is that the number
+of permutation of a set size K is K factorial, okay? >> Or, I can say here that, if I have a number of permutations of a list of N elements is N factorial, okay? So, we need these two facts that
+the number of permutations of a list of N elements is n factorial and
+if I have a set of size N and I'm choosing subsets of size K,
+there is N choose K, which is N factorial divided by N minus
+K factorial divided by K factorial. Why are these needed? Because we are looking at subsets and
+permutations. So, here for each subset V
+prime of size K minus 1, okay? So, we're looking at subsets of size
+k minus 1 of set V, which has N. So, how many possibilities are there? If I have a set of N elements. And I need to look at
+subsets of size K minus 1. How many possibilities are there? Using this result here,
+this is going to loop or iterate N choose K minus 1. Okay? I have a set of size N. V is of size N and I'm looking at every
+possible subset of size K minus 1. So I use N and K minus 1,
+which is this here 1. Now I look at for every permutation
+you want you K minus 1 of V prime. V prime is a set that
+has K minus 1 element. I'm looking at every permutation of that,
+this one is K minus 1 factorial. And we're done. We have many lines that are going to
+take single operations, then we have this loop that's
+going to iterate N minus 1 times, we have this loop that takes N,
+choose K minus 1. This loop is going to take
+K minus one factorial, this is going to take on the order
+of K times, this loop, and so on. And this is what we do with
+the running time analysis. We get these number of operations. Now, what we do is we start adding
+these up because the running time of the algorithm is going to be
+the addition of this, okay? Now, I'm not going to add them up here, because we are going to have to take
+care actually of all these loops, and how they are nested, so this K,
+for example, is, is a variable. It's going to be, it's going to be
+changing from, from one to N minus 1, and so on, okay? But later we are going to get to a point
+where I am going to write down that what is the running
+time of this algorithm. But here I counted
+the number of operations. Now if I put these numbers correctly in,
+in the formula and I just add, add them correctly
+I'm going to get that formula of the running time as
+a function of the input size. So everything here, if you look at it,
+it's a function of N. And nothing else, because this K,
+this K minus 1, are going to go, are going to go away, once we notice that
+K is going to loop from one to N minus 1.

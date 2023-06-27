@@ -1,0 +1,142 @@
+'Kay, hi again. Now, that we have welcome
+you to the course, we have say a few words about what
+algorithm main thinking is about. We will start with the actual
+material in the course, and we will start with the very first problem
+that we will see and, and deploy or employ algorithm thinking
+to solve that problem. And the problem is go, is going to deal with something that,
+with a phrase that you probably have seen. Or has said. Or, friends that you have heard from
+someone or have rated somewhere. Which is, it's such a small world. We, I have stated many times,
+you probably have said, or again have read it somewhere. You travel to a different country, you see
+someone that turns out to know someone, that is your cousin, or
+your friend, and so on. And they say it's a small world. So, in this, in this part of the course, we are going to talk about that
+small world statement that we make. What is a small world? What does it mean? What does it imply? What, should we care about it? And how do we test if
+the world is really small? Okay? So in this, in this part of the course, we
+are going to do, use algorithmic thinking. To reason about the world. If it is small and, how we,
+how do we decide if it is small? Or how do we test
+algorithmically if it is small? Okay, now what does it mean
+to say the world is small? We usually use it in
+the context of who knows whom. Right, in the sense that,
+again, I travel to a country. I meet a person there, and that person we
+start chatting, having conversation and that person all of the sudden
+mentions another person, that turns out to be my colleague,
+or my cousin, and so on. So, we usually think about the, the issue
+of small world in terms of whom know whom. So, if you think about individual X
+knowing Y, Y knowing Z, Z knowing W, and so on, the question is,
+does X know W, for example. And, and if I take any two individuals,
+what is the, what is the chance that they
+are connected through a very short path. Okay, so when we talk about small world,
+and we talking about the world as the individual world, and
+who know, and who knows whom. Then that when we talk about small
+world we are basically saying if I take any two individuals in the world,
+what is the shortest path that connects these two people in terms
+of who knows whom relationship. Okay. Now, why do we care about the small world? Of course,
+this is an algorithmic thinking class. It's not about, let's just try to quantify
+what people mean by, it is a small world. No, being, the world being small
+is actually a phenomenon that doesn't just apply to the world as
+individuals and their relationships. It applies to a network, for example. You can basically look
+at a computer network. And say, if I take any two nodes in
+that network, how far apart are they? If I take two nodes at random,
+how far apart are they? If I take any kind of connectivity map,
+for example of proteins, of proteins in the cell, if I look at your cell and I map
+all the proteins and their connections,. If I take any two proteins at random,
+how far apart are they? In terms of connections, okay? Protein A talks to protein B. B talks to C. C talks to D. So, we have a path of length
+three between A and D. How far apart are they? Now. This, this phenomenon of small world,
+again the applies to protein networks, to computer networks to networks
+of humans, and individuals, and how they know each other has great
+implications on many, in many areas. For example,
+if we have a small world phenomenon, or a small world effect in a certain system. Like if every individual. Is connected to every other
+individual by a path. By like at most three,
+and other individuals. Then you can think about
+information flowing through that population very quickly. If you, if someone starts a rumor
+that rumor is going to spreads very, is going to spread very quickly. But for more interesting applications, for
+example, in the area of ep, epidemiology. If the, if the individuals in a,
+in a city, for example, are connected so
+tightly that we have a small world effect, that we have between any two individuals,
+we have such a short route. Then if, if someone gets infected
+with infectious disease, then there's also very good chance that, that disease
+is going to spread through the community. Very quickly. So, there's more world,
+the small world phenomenon. It started by, basically by thinking
+about how people are connected and how far apart are any two individuals
+that we choose at random. But its implications and its interest are way beyond just
+looking at individuals in a society. So we care about this. And when we have a system of,
+of interconnections, we are interested, one of the things that we
+are interested in knowing. Does that system exhibit
+the small walled effect? Okay? The, one of the main, the main experiments
+or, the first experiments that were done. To look at whether humans, or individuals are connected very tightly
+in the sense that any two individuals are connected by a short path was done
+in the early 60s by Stanley Milgram. And you can look up, for example, the Milgram experiment,
+it's a very famous experiment. It was done in such a low-tech fashion
+that they were basically mailing letters. Among individuals, and they wanted to
+see how long it takes a letter to, to reach from person A to person B,
+even if, even though A and B have no knowledge of the relationships of the, of
+the individuals in the, in the community. However, the, the, our,
+our access today then, our access to information and technology
+have tremendously since the early 60s. So today, we have access to very large so,
+skill, social data from Facebook, from instant messaging, from Twitter,
+from Emails and so on,. That will allow us to ask these kind of
+questions at the much larger scale from much large scale data and
+in a much more systematic way. Instead of us mailing letters among
+individuals, we can now go and mine data, sources of data,
+from Facebook, or Twitter again or, or emails for
+example and try to quantify that question. And try to understand is
+the world really small. Okay? So, the first thing is we need
+to understand the problem. Again remember that we want to em,
+em, employ algorithmic thinking. We need to understand the problem here. So, let's assume that we have access for
+example, to all the Facebook data, okay? So, we have information about all
+the individuals that have accounts on Facebook. We have also all the information
+about who's a friend of whom, okay? We would like to know, understanding
+the problem basically tells us that we would like to understand if, using
+Facebook data, the world is small, okay? So, what that means is that if I
+look at the Facebook data, and I take any two accounts
+in the Facebook network. What is the,
+the distance of these two accounts? If I take any two
+accounts at random again. So, then the problem in this case is
+not actually very hard to understand. We have all the Facebook data. We need to see if that Facebook did
+the exhibits small world effect. Next we move next to the,
+the formulation phase. And we need to think now about how do
+we formulate the input to the problem. Now it makes sense when we look at again
+individuals, and their connections, that we have a representation that says,
+okay I have here this individual 0, individual 1, individual 2, 3. Four and so on. Again when we locate the, the entire Facebook data,
+we have many more than five notes. But for the sake of illustration let's
+assume that we have five accounts for five individuals. Then we have five individuals,
+in addition we know also from this individual who's
+connected to who, who's a friend of who. For example zero is connect, has a friend
+of one, zero is a friend of two. Of three and of four. One is a friend of just zero,
+two is a friend of three and of four. These are the connections, so if I take
+a snapshot of Facebook this is what I get. I have five individuals this is how
+they are connected on Facebook. So, this will be the input. And in this case it makes most
+sense to think about the input in terms of a graph again. Nodes, and edges. Because the system is amenable to
+a representation with graphs, okay? Once I have this input,
+what is the output? How do I test the small world effect? I have to look at, for every pair of
+nodes here, I need to ask the question, what is the distance between these,
+these nodes, okay? So, one way to look at this is by
+producing what we call a distribution of the pair wise distances. What is a distribution
+of pair wise distances? I have to tabulate all of
+pair wise distances here. I have to say what is the,
+I have to look at ever pair of nodes. Node one and node, two nodes here. And I say what is their distance? Since we are looking here at who knows
+who we don't have a way to the edge. We are not asking who knows who best or
+communicate five times a day or anything like that. All we are saying is that who knows now. So, now when we talk about the distance,
+the next question we ask, what is the distance here. In this case basically,
+what is the minimum number of connections that will take me from
+individual i to individual j. So, the distance between nodes zero and
+one is one. They are connected by one connection. From zero to two, it's one. From zero to three it is one. From zero to four it is one. Two, from two to zero it is one. Actually we,
+we can look at individual one now. One to zero is one. From one to two. It is 2. From 1 to 3, it's 2 as well. From 1 to 4, it is 2. And so on. Once I have these pair-wise differences
+for every pair of nodes, their distance, I can tabulate this and say, okay,
+how many pairs of nodes have distance one. Then I can look at all of them,
+I can count them one, two, three, four, five, and so on. Let's assume we have seven
+pairs that have distance one. Then I put a bar here. How many nodes are,
+how many pairs of nodes are distance two, it might be four, for
+example, and I put a bar. How many are distance three? This and so on. This is what we call the distribution. [NOISE] Distribution of
+pair wise distances. This distribution is going to tell me
+whether the world is small or not. Whether this Facebook network
+exhibits a small world effect or not because I can look at it and say. For example,
+if this is the entire distribution, I will say any two individuals you take
+a trend on, they are connected by the, by the path of length one or
+two or three, whichever is short. In this case, actually. they might not be too short
+because this is the number of individuals is already five. But you get the point that
+if I take this input. And this output, basically I have
+formatted the problem cleanly, and it will allow me to answer that question
+whether Facebook network exhibits worldwide defect, okay. So, this is what we basically mean when
+we say that this is the formulation of the problem, and we formulated
+the problem as a graph theoretic problem. It is a problem that involves graphs. Okay, so now we are going to move to
+graphs, what the graphs are and, and some basic concepts.

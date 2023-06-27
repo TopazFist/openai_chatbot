@@ -1,0 +1,154 @@
+So when, when we analyze the running
+time of an algorithm, or look at multiple algorithms and
+try to compare their running times, we usually focus on the running
+time as the input size grows. We don't use, we don't focus on
+the running time for very small values. Because, if the input size is 2,
+probably most algorithms are going to do an okay job, regardless of whether it
+is exponential or polynomial or linear. It, it, it's not going to make a big
+difference in practice, again, if the input size is 2, or 4, or 5. The question is,
+as the input starts growing, in the, in terms of size, how do these algorithms
+and their running times start differing? Does the, does the gap starts opening
+between the running times, and so on? So this is why when we do analysis of
+running time, we focus on the order of growth of the functions that are given for
+the running times. So if I have running times of, of, of four
+algorithms and for each one, again we have the function of the running time,
+a function in terms of the input size. What we, what we really mean the focus on
+is that how do these functions compare to each other as the input
+size starts growing? Again, if for, for, for
+input size of 2 or 4 or 5, I don't really care which one is
+smallest or which one is biggest. I'm not going to choose an algorithm based
+on how it performs on an input of size 2. Because when we deal
+with real life problems, we are not going to be dealing
+with inputs of size 2. In real, real life problems, we're going to be looking at at inputs
+of very large sizes most of the time. And it matters to us how is the algorithm
+going to perform when the input size gets larger. And this brings us to the concept
+of growth of functions. How do they grow? To illustrate this,
+I'm going to imagine a sce, a scenario of having a problem,
+one problem, for which four, four different algorithms A,
+B, C, D where developed, okay? Four students developed four
+algorithms for the same problem. I'm going to assume all
+of them are correct. And I will look at the running time. I asked the students to analyze
+the running times of these algorithms. They came back to me. One, the student developed algorithm,
+he said his algorithm runs in log n. Okay?
+It's a log of n. A student who came up
+with algorithm B told me that her algorithm runs in linear time. It takes o of n time,
+or on the order of n. The third student told me that
+the algorithm runs in n squared. And the fourth student told me that her
+algorithm runs in 2 to the n time, okay? So. Here on the board, I'm showing
+a table illustrating these four functions of running times that for
+the four algorithms A, B, C, D. Again one algorithm takes log n,
+the other takes n, n squared, 2 to the n. And I want to look at how
+these functions grow. Again as I said, for small input,
+it's not going to matter. Any algorithm I choose is
+going to be fine probably. The question is how do these
+algorithms start differing in terms of running time as the input size grows? So to, to, to look at that or to, to answer that question,
+I will do a very simple exercise. I will try just a few input sizes and
+see how the functions evaluate too. So I'm going to try three input sizes. Two. N equal two. N equal 16. N equal 256. Again, let me remind you once again,
+that even 256 which is much larger than 2, this is still very small
+compared to sizes of inputs. And real life problems that
+we solve computationally. So these, by, by any standard,
+these are still very small input sizes. But, for the sake of the exercise
+of looking at how these four algorithms are going to
+fare in terms of running time, it is sufficient to look at these numbers. Now for each one of these numbers, I'm going to evaluate the function, the
+running time function, for all algorithms. So if the input size is 2, algorithm
+A is going to, execute one operation, B is going to execute two operations,
+C is going to execute four, and D is going to execute four. With today, with today's computers, and
+even with computers from 20 years ago, these are not going to make any
+difference in practice okay. One, two, four operations. Regardless of the algorithm and the machine is going to execute the new
+hit until you get the answer immediately. I go to input of size 16, algorithm
+A is going to perform four operations, B is going to do 16 operations,
+C is going to do 256 operations, D is going to do 65,000 operations. With today's computers, these, these
+algorithms 256 or 65,000 operations were, four operations, the algorithm is going
+to terminate in fractions of a second. Okay? So the input size increased. The running time started increasing. D is the largest and A is smallest in terms of running time,
+but still we are fine. Okay? I mean, it's not a big deal to run an
+algorithm that takes this many operations, because again, today's computers
+can do this very, very quickly. Again, this is going to
+be fractions of a second. Now let's look at the third
+input size of 256. We go to 256. Algorithm A, take,
+performs on the order of eight operations. Algorithm B performs on
+the order of 256 operations. C is going to take on the order of 65,000. Now algorithm D is going to take on
+the order of 10 to the 77 operations, whatever the name of that number is. I don't know if there's a name for
+such a number. But this is going to take on the order
+of 10 to the 77 operations, okay? Now, now we start asking questions, okay? Now input size is 256. These differences here with today's
+computers are not significant. Again, yes eight operations
+is going to be faster but 65,000 is going to still
+be fractions of a second. How long is it going to take to do this? Okay? How long is it going to take to do this? So, this is the number of operations that
+this algorithm is going to perform, okay? So let's let's just make some simple
+assumptions, and let's assume that, I have a very powerful computer that
+can do 10 billion operations a second. Ten billion operations a second. So now I ask,
+how many seconds is this going to take? Or how much time is this going to take? So, if I can do 10 billion
+operations a second, I can divide this by 10 billion,
+will give me the number of seconds. I can divide that number, then, by 60,
+it's going to give me a minute. I can divide this, that number by 60,
+it's going to give me the number of hours. I can divide that number by 24 is
+going to give me the days, and as I divide that number by 365,
+is going to give me the number of years. If you do that exercise, you will find
+that, even if your computer can deal with, with 10 billion operations a second,
+this is going to take on, more than 10 to the 59 years. Okay? It's going to take more
+than 10 to the 59 years. That's if we assume that the computer
+can do 10 billion operations. Okay? Now 10 to the 59 years. There are two issues. First of all, to the best of my knowledge,
+the laptops and the desktops that we use today cannot
+do 10 billion operations a second. This is number one. Second thing, 256 is still very small for
+an input size. So, in practice, we'll be dealing
+with much larger input sizes. In practice we'll be
+dealing with computers. Using computers that can process fewer
+than 10 billion operations a second, you can get the point. If under these simplifying assumptions and
+generous assumptions, I'm getting 10 to the 59 years just to,
+to handle the input of size 256. You can imagine what's going to
+happen in practice okay? So, this is the sense, this is why we are
+interested in the growth of function is that I'm interested in how
+the running time is going to grow. As the, as the input size grows. Because this is not where I'm interested. This is not the input size
+that's going to concern me. The, what's going to concern me
+is that as the input size grows, how does this function grow? If it grows like this, I,
+I go from two to 16 to 256. And the function grows sub linearly,
+right? If I draw that,
+if I draw the plot here and the x-axis, I put the input size, and
+here I put the function running time. This is 2 here and this is 16 here, and this is 256 here. Again 2, 16, 256. This is a linear,
+suppose this is a linear function here, 2, 2, 16, 16, so
+this is going to be the y equal x here. This function, the log n is
+growing actually slower than that. Slower than linearly. That algorithm B is going to
+take this running time linear. The squared one, running is time is square
+is going to take square n squared but 2 to the n is going to
+start growing very fast. This is where 2 to the n is going to
+happen and this is n squared. This is the n here and this is log n. So when I look at the growth of
+functions like this in these terms. I can see that algorithm A as input
+size grows, its running time is growing. Of course it will grow. We won't, we cannot, I cannot think of
+many interesting algorithm whose running time is not going to grow with input size. So that is not the question. The, the running time is going to grow,
+as the input size grows. The question is, how does it grow, okay? This is a nice growth. We would love an algorithm
+whose growth is like this. We can, we, we love an algorithm whose
+running time also grows linearly. We can tolerate, and
+we would be happy also with a, with a, with quadratic time, n squared. But, an algorithm that takes 2 to the n,
+is not going to be very practical, okay? Again as I said here,
+if n is 256, if you can handle 10 billion operations per second,
+it's going to take us 10 to the 59 years. What is the point of such an algorithm? Even if it is correct,
+even if it is elegant, even if it is written in whatever
+programming language, it's useless. Okay?
+So, this is why we focus on the growth of, of, of functions and
+they are of interest to us. Now, as we focus on the growth of,
+of functions and we start looking at, at running time
+as n becomes bigger and bigger and bigger, or as we say mathematically,
+as n goes to infinity. What we, what, what we can do is
+that as n starts going bigger, growing bigger, we can start focusing
+on dominating terms in the functions. Okay? So, if I have functions that are growing,
+and two functions and have multiple terms in them, all I really need
+to think about are the dominating terms. To illustrate that, let's think about
+two functions, two algorithms whose running time, one of them is 1,000 n,
+and one of them is n squared. Okay? So we have two algorithms,
+one takes 1,000 n, one takes n squared. What I mean by, as, as n goes to, to
+infinity we can focus on dominating times. As n goes to infinity, dominating term
+is going to be the n squared, not the n. Okay? How do I know that? If n is 1, of course this
+function is bigger than this. If n is 2, this is bigger. If n is 3, is bigger. Four, is bigger. And so on. At some point, I will get to a value of n after which n
+squared is going to be much bigger than n. That point is actually n equals 1,000. When n equal 1,000,
+these two are equal, but when n equals 1,001, this becomes bigger. When n equals 1,002, this become bigger,
+1,003 becomes bigger, and so on. So this one, after n equal 1,000,
+this one becomes the dominant one. Okay? So, if I have really a running time of,
+of a, of an algorithm that is, let's say a 1,000 n plus n squared
+plus 7 n cubed plus n to the 4th, I can simply say that this algorithm is
+going to be dominated by n to the 4th. This is what we mean by focusing
+on dominating terms and ignoring lower ordered terms. Further, we can start also when I look
+at 5 n squared versus an n squared. I can ignore this constant
+because the n squared is going to be the dominating term rather than that 5. The 5 is not going to
+make a big difference. Okay? So when we look at growth of function, we
+are really interested in running time as the input size grows, grows to infinity. And as the input size grows to infinity,
+we can focus on dominating terms and start ignoring multiplicative factors,
+constant factors, and we can start ignoring lower order terms.

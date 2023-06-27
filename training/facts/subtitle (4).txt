@@ -1,0 +1,157 @@
+Hi again. In the last lecture we saw the problem
+of the small wall defect, and how we test if the, if a network or
+a graph has a small wall defect. And as we said or we ended last time, is by formulating
+the problem, as a graph theoretic problem. Or the input was a graph, and
+we had to compute something on the graph. So now the question is, what is a graph? The, the, the purpose of this lecture,
+is to introduce some basic concepts ah,ah, on graphs, that are needed for
+this specific problem. Graph theory is a very rich
+field of computer science. We are not going to cover, even 5% of it. And we are not going to introduce
+all the concepts that we need throughout this course. Now.
+We are going to introduce this concept as we need them. For now we need to talk
+about basics of graphs. What is a graph? How we represent it. What is a distance in a graph
+because we need the distances to, to look at the small walled problem. So, what is a graph? That first thing we are going to
+look at at the graphs in terms of directions of edges. So, we are going to talk about two
+types of graphs in the beginning. There's an undirected graph and
+there's a directed graph. What is an undirected graph? A, an undirected graph formally is, is, is
+described by a pair two elements, V and E. V is a set of nodes. We say it's a set of nodes. It has to be, of course, finite. It's a finite set of nodes. And E is a set of undirected edges, where
+an edge is basically a set of two nodes. Okay?
+So an edge connects two nodes, and we represent it as a set
+of these two nodes. So, as an example, [SOUND] this is an undirected graph. That has four nodes and four edges. The set of nodes in this graph are 0,
+1, 2, 3. And the set of edges in this graph are,
+there's an edge between 0 and 1 that is undirected, so we represent it as an
+unordered pair or a set of two elements. There's 0, 1. There's an edge between 1 and 2. There is an edge between 2 and 3. And there is an edge between 3 and 0. And this graph, if I call this graph G. This is the, the picture of the graph,
+or the drawing of the graph. Formally, the graph is the pair V,
+E where V is the set and E is this set. Notice that in sets order does not matter. I could have written two, one, zero,
+three, three, one, zero, two and so on. The order of the two nodes here zero,
+one, one, zero are the same. So I don't write it twice. Same thing with one, two,
+two three, three zero. The, the, the fact that I wrote this
+edge before this edge means nothing. I could have written this before and
+so on. So with undirected graphs,
+we have a set of nodes, we have a set of undirected edges. Okay, when we talk about directed graphs. Directed graphs have a similar,
+a similar thing in terms of nodes. We have a set of nodes. Doesn't change. What the difference is,
+with the, with the edges. So now these are undirected edges. But when we talk about directed graph,
+we have direction on the edges and when we write them formally,
+we do not use set notation. We use double notation. So, if I want to describe an,
+a directed graph now, this is an example of a directed graph, that has four nodes [SOUND] and
+has three edges. This graph G, is basically can be
+described formally as the pair V, E, where V is like before, four nodes. This are their ids or numbers than, the
+names of the nodes do not have to be zero, one, two, three, the could have been U, V,
+X, Y, they could have been A1, A2, A3, A4. These are just node ids, in some sense. And the edges now,
+I have an edge from 0 to 1, from 0 to 1. So we write it as the pair 0,1. 0 on the left, 1 on the right, the way we read it is that the edge is
+from the left to the right, from 0 to 1. I have an edge from 2 to 1. I have an edge from 3 to 1. Okay? Now notice the difference. Now the notation is different. It is not the curly braces. We have the parentheses to tell
+us this is an ordered pair. This is the,
+what we call the tail of the edge. This is the head of the edge. It goes from 0 to 1, 2 to 1, 3 to 1. It has three edges. So, with undirected graphs we have
+undirected edges that are represented as sets with directed graphs we have,
+directed edges that are represented as ordered pairs, where the edge is
+read from the tail to the head. Okay?
+So we have directed and undirected graphs. In this course, we will not allow. Self-loops and
+we will not allow parallel edges. What I mean by this is, we will not have a
+case where we have two edges from 0 to 1. This is not going to be allowed. We don't allow this. This is called parallel edges. Also at the same time, we are not
+going to have, a self-loop like this. We won't have an edge
+from a node to itself. So these, we can assume throughout
+the course that these do not exist. Notice that,
+we can have something like this. These are not considered,
+these are not considered parallel ledges. Edge from 0 to 1 is not equivalent
+from the edge from 1 to 0. Think about it as a one-way street,
+or two-way street. If I, have this, I'm saying the street from intersection
+0 to intersection 1, is one-way. If I do this,
+I'm saying it is a two-way street. And these are not the same thing. Okay? So, in this course we will
+not allow parallel edges. We are not going to allow self-loops. You can assume this, throughout. Now, this is a graph. This is a drawing of a graph. Remember that, we need to write
+algorithms that reason about graphs. We need to write computer programs
+that take graphs as input, manipulate graphs,
+print graphs, and so on. Of course, we cannot give a computer,
+a description of a graph like this. I cannot say, here is the drawing
+of the graph, understand it. We have to represent
+the graph in a certain way. Now, of course, what you see on the board
+is already one representation of a graph. If you want to describe the graph to me, to an algorithm to a computer program,
+you can describe two sets. The first set, is the set of the nodes. The second set is a set of,
+of directed edges around directed edges. However, this is not commonly
+used representation of graphs. I would want you to think about what
+would be bad with this representation? Think about it as in terms
+of the amount of space, or memory, that it's going to take just to
+represent a very big graph using this. There's a lot of redundancy,
+in representing the graph like this. Okay? So, this representation,
+while this is a representation of a graph, in terms of the two sets. These are, this is not the commonly
+used representation and is not the, the representation that we'll be using,
+when we talk about algorithms that manipulate graphs or
+computer programs that manipulate graphs. Instead. We will be using, making use of one of two, representations
+that are very commonly used. One of them is called adjacency list. And one of them is called
+adjacency matrices. And we will illustrate them,
+on the undirected graph that we, we had. If I look at, this graph again. [SOUND] This is an undirected graph. The adjacency list
+representation of a graph, it's basically a list that has,
+two columns. And the left column is,
+we list all the nodes [SOUND]. Or all of the node ids. On the right here, we put the set. Of all adjacent nodes or neighbors. An adjacent. A node is adjacent, a node i is adjacent
+node j if there's an edge between them. So, I ask what
+are the neighbors of node 0? The no,
+the neighbors of node 0 are 1 and 3. So, I put them like this. What are the neighbors of node 1? It's 0 and 2. What are the neighbors of node 2? It's 1 and 3. What are the neighbors of 3? It's 0 and 2. Okay? This is adjacency list representation of
+this graph, notice two, two things here. The first thing is that the order of the, on the right hand side does not matter,
+does not matter. I could have written three one, one three,
+zero two, two zero, it doesn't matter. The second thing, notice
+the redundancy in this representation. One is a neighbor of zero. Zero is a neighbor of one. In undirected graphs, it doesn't matter when you have
+an edge between node zero and one. It's a node,
+it's an edge between these two nodes. But with adjacents,
+unless we don't have a way to, to eliminate this,
+we have to write it twice. With, if we are talking about an,
+a directed graph. That redundancy is not there. If you have zero one, and one zero. It means you have two edges. One from zero to one,
+one from one to zero. This is the first representation
+we are going to talk about. The second one we are going to consider,
+is what we call adjacency matrix. An adjacency matrix, if I think
+about this graph, it has four nodes. An adjacency matrix is a matrix
+that has four rows, four columns. If you have N nodes in the graph,
+it has N rows and N columns. In this case, we have four nodes. So it's a four, what we call,
+a four by four matrix. Again, in this case, it is four by
+four because we have four nodes. If we have 100 nodes,
+it's going to be 100 by 100 matrix. And then, we have these four rows and
+four columns. And, the rows correspond to the nodes
+in the graph or the node ids. So we have 0, 1, 2, 3. And the same thing with the columns. Now, this matrix, if I, if this is graph
+G and this is matrix A, this matrix A. What, what value do I
+put in this matrix here? This notation A, i, j, basically says that the entry at
+row i and column j of the matrix. What value do I put in that row and,
+and column? I put one there, if i and
+j are connected by an edge. Or, if this pair of nodes i and
+j, form an edge in the graph. I put an enter zero here,
+if i and j, are not an edge. This notation says that i, j,
+this set is an element of E. This notation says that i,
+j is not an element of E. Or in English. This says that i,
+there is an edge between i and j. This says i,
+there's no edge between i and j. So if I go to this here, there is
+definitely no edge between zero and itself, or one itself to one itself,
+three in itself. There is an edge between zero and one. There is an edge between ze,
+there is no edge between zero and two. There is no,
+there is an edge between zero and three. So it is one. Now I go to node one, is there an edge
+between one and zero, the answer is yes. Between one and two, the answer is yes,
+one and three, zero. And so on, we can fill out this matrix and
+you have it on the, on the slide. Okay, in the case of
+a directed graph if I look at. A directed graph. If we go back to 0, 1, 3, and 2. If we go to our original graph. Now, we put in the matrix i, j. Now the order matters. We put one here. If there's an edge from i to j. If i,j is in E and there's zero,
+if i,j is not in E. Okay? So in this case for
+example when I do matrix A. [SOUND]
+I have an edge from 0 to 1. Right there's 1. I have no edge from 1 to 0. So this is 0. Okay? So we say that this matrix is
+not necessarily symmetric, A, i, j is not necessarily equal to A, j, i. They're equal only if there's an edge
+in both ways between these two nodes. In the case of undirected graph,
+that's, the, the matrix was symmetric. If you have one in entry A, i, j,
+you have to have one in entry A, j, i. Okay?
+So this is, these are the two representations that
+we will be using alter in this course. We will assume one of
+the two in every case, but the, which one we use
+makes a big difference. Because, if the graph is sparse,
+if the graph has too few edges. It makes more sense to use an adjacency
+list, if the graph is very dense, it has too many edges very close
+to the maximum number of edges, it makes more sense to
+use an adjacency matrix. I encourage you to think about
+these two facts that I just said or about these two claims I made. That, if the graph is sparse,
+it's better to use adjacency list, if the graph is dense,
+it's better to use an adjacency matrix. Think about them and
+think why these make sense. In, in when we look at, at an undirected graph, as I said before,
+we use a term adjacent or neighbor, two nodes i and j are adjacent,
+if there's an edge between them. At the same thing we say they are
+neighbors if there's an edge between them. In an undirected graph, so we,
+let's have the two graphs here. [SOUND] And, let's [SOUND] erase this. So we have these two graphs here. In this case, we say that 0 and 1 are neighbors, 1 and
+2 are neighbors, and so on. The degree of a node is the number of
+neighbors, so it has, two neighbors here. So the degree of node 0 is 2. And here the degree of node 1 for the, the
+degree, sorry, the degree of node 0 is 2. The degree of node 1 is 2 and so on. When we talk about directed graph,
+we talk about in-degree, how many neighbors are connected by
+an edge from them to the, to the node? So 1 has in-degree 3, because there
+are two edges coming into it. It has out-degree 0, because it has
+no edges outgo, outgoing of it. For node 0, it has in-degree 0,
+no edges incoming into it. And it has out-degree 1, because it
+has one, one edge going out of it.

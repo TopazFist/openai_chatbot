@@ -1,0 +1,135 @@
+So in this course, you and when we ask you to do the programming part
+you will be writing the code in Python. However, you will notice that
+when I'm describing algorithms or when there are questions about algorithms
+the mathematical algorithms on the homework, you'll see that I will
+be using or requiring the use of a, of a certain program or
+language that we call pseudo code. Okay. So we have this notion of pseudo-code. [SOUND] Okay. So what is pseudo-code and
+why do we want to use and why not just stick to Python? So pseudo-code is a language that is
+very powerful for describing algorithms. It is somewhere between a formal
+programming language that has exact syntax that you have to use, and
+English or any other natural language, in the sense that it is not as
+formal as a programming language. It gives you wiggle room for using
+structures or using English in them, but is not like English that it is
+ambiguous or not structured. Okay? So pseudo-code is very important, you are going to be seeing
+it throughout the course. We are going to be using it and it's very important that you feel
+comfortable with reading pseudo-code. Okay? There are going to be on the website
+some notes about syntax that we use for pseudo-code. Of course, the syntax is going to
+be not very formal because you might ask me why don't we
+formalize pseudo-code? But if we formalize pseudo-code,
+what did we get ourselves into? We have defined yet
+another programming language. All right?
+So we cannot formalize the syntax of
+pseudo-code perfectly because otherwise, we have again created
+another programming language. So pseudo-code, you know, when we use a certain notation, doesn't
+mean that this is universal notation. If you look at different
+algorithms textbook, you might see differences in
+the pseudo-code that the authors use. Usually, it reflect the programming
+language that the author has been using. Right. So for example the sign for assignment,
+how do I assign the value five to x. You might see some book saying,
+x equal five. Okay? You might see some book saying,
+x colon equal five. You might see some text books saying,
+x left arrow five. Okay? And all of them this is assignment, right? Of course, if you are using Python
+you have to use one specific symbol for assignment. If you are using C Plus Plus, you have to
+use one specific symbol for assignment. In, in pseudo-code, it's not that
+this is right and these are wrong. Or this is right and these are wrong. No, you will see these all these
+ones in different text books. Okay? Now every text book tries
+to be consistent, so if a text book is using this for assignment, you will see that the textbook
+is using this throughout the book. Okay? But it's very important to keep in
+mind that we are not going to be compiling the code, we are not going to be
+really running the pseudo-code in the so it doesn't matter if it was this or
+this or this as long as we are consistent. For example, in this course, we are going to be using this notation,
+x left arrow five. It means,
+I am assigning the value five to x. Okay? So, you might be asking, why am I, am I
+using pseudo-code again and not python. Okay?
+Python is in some sense is a high level language. Right. The one of the major issues of, or
+the rationale behind using pseudo-code is that pseudo-code tells
+us what we want to do. It tells us what we want to
+do in terms of the algorithm, not necessarily how we want to do it. Okay? And when I am describing
+the algorithm to you, it's very important that I tell
+you what I want you to do. These are the steps that I want you to
+follow to, to, to achieve the, the task. Now, how you want to do
+each one of these steps? Again, it's very important sometimes
+to leave room for the, for the user or the programmer to implement them
+the way they feel comfortable or the way they find them
+to be more efficient. Okay? Let me illustrate. Suppose I'm in, I'm writing an algorithm
+or a piece of program and somewhere there, I want, I have a list, L and I want to
+find the minimum element in that list. Okay?
+The smallest element or a smallest element in that list. So here's one way I would
+write it in pseudo-code. Let say, x is the smallest [SOUND] element [SOUND] of L. Okay. So this is one way that I can
+describe this in pseudo-code. Notice, I'm using English,
+I'm using some mathematical symbols. But it is basically telling me that I am
+assigning to x the smallest element of L. Now, I have told you
+what I want to be assign, to assign to x, the smallest element in L. Okay?
+Or a smallest in case there
+are multiple ones. Now, no, contrast this to the following. We can do this. [SOUND] So this is a part of code that says,
+initialize x to infinity very large number, then loop
+throughout all the elements of L. Here I'm assuming that the list
+is index trans zero to n minus one if it has n elements. And for every element of L,
+i is smaller is x, if the first one is smaller than x
+I'm going to replace x by that one. And I repeat,
+if the second element is smaller than x, I'm going to put an x
+the second element and so on. What does this code do? This code is identical to this. This is going to actually find
+the smallest element in L and say that, and put it in x. Now, is this telling us anything more
+than this about what we want to do? The answer is no. I would argue that this is not telling
+me anything more than this about what I want to do. It's basically telling me, I want to set
+to x the smallest element in the list. What is this giving me more than this? It's telling me the how,
+how am I doing it. Right? So this one is saying,
+to find the minimum element in L, I'm going to be scanning the list
+all the way from the left to the right to find the smallest element and
+I will return that. Okay?
+So [COUGH] this is where pseudo-code allows
+me, gives me wiggle room to play with how much description or how much detail I need
+to give and the algorithm description. This is acceptable pseudo-code,
+this is acceptable pseudo-code, this is not acceptable in Python or
+in C Plus Plus or in Pascal. This, if it is translated to proper
+Python, this will be acceptable, this is very detailed and this, you know,
+in terms of instead of putting left arrow, I would put equal. In terms of mathematical
+symbol of infinity, I will have to put proper thing in Python. But this is basically would translate
+one to one, line for line into Python. Right? But again,
+in terms of what am I trying to achieve, this is not telling my
+anything more than this. In fact, I would argue that this
+is more readable than this. But again, if I say how long does it take
+to find the minimum element in the list? It's not easy to, to answer that
+question with this, because okay, you are telling me that I
+find the smallest element. It is easy to answer this, if the list has n elements, this is
+going to take on the order of n operation. Why it's not easy to find, to say,
+what is the running time of this? You might say, well, look this is how
+I would find the minimum element. That's not necessarily always the case. I will give you another way of finding the minimum element which is [SOUND] sort the list L in increasing order,
+return, L0. Okay. This is another pseudo-code that is doing
+exactly the same like this in terms of what we want to achieve. It is sorting the list
+L in increasing order, returning the first element
+in L after it is sorted. Now notice, this is different than this,
+different than this. They are, all three of them are finding
+the minimum element in the list. This is going to differ from
+that in terms of the details. And also is going to differ
+in terms of the running time. This one here for example, what is
+the time it takes to sort the list? Returning this is probably one operation. If I can go to that first, first element in the list in one
+operation, then this is not going to take many operation are going to take
+a small number of operations. But how long does it take sort? So now you start seeing that pseudo-code
+gives me this flexibility of, in very simple readable way,
+describing what I want to do, like this. But also it allows me, the flexibility
+to specify exactly how I want to do it. Here, I'm saying do it like this,
+sort the list, return the first element. This is going to be correct,
+is going to return the smallest element. This one I'm saying, scan the list, in, in, in order from left
+to right and find the smallest element. This one doesn't tell
+me anything about how. Okay? Of course, when you write something in
+a real programming language Python, C Plus Plus or Java for
+example, you cannot do this, you cannot get away with this. You have to know exactly how it is
+implemented and how the, all the details. You have to figure out the details, are
+you going to be doing this, are you going to writing a sorting function, sorting and
+then returning the first element? So, this is the why we use pseudo-code. I describing an algorithm like this,
+look at this here in one line I said, sort the list, there's nothing ambiguous about
+it, sort the list in increasing order. Right?
+There's nothing ambiguous. If I wanted to write this in Python, I have to write a long piece of code
+that in fact, does actually the sort. Okay. Whereas in, in pseudo-code it was this
+magic line says, sort in increasing order. I don't need to describe anything
+more because it's very well defined. Okay? So it allows me again,
+to abstract things out, while still maintaining readability and
+understanding of what I want. I want the smallest element,
+at the same time if I decide to go into more details so that one understands
+exactly how I want it to be done, I can use the pseudo-code
+as well to achieve that. Okay? So this is why we use pseudo-code,
+it's a very high level language, abstract, has flexibility it allows
+me to write things in English, it allows me to use
+mathematical symbols and so on. But at the same time, it's, it'a
+efficient to describe what I want to do. Okay?

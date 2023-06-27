@@ -1,0 +1,107 @@
+Okay.
+Now that we have, we have gotten to a point where we
+wrote the BFS algorithm formally, we can describe the entire algorithm. Let us illustrate how this
+algorithm would work, how we're going to make use of the queues,
+and how it will compute the distances. This is the algorithm, this is
+the pseudo code of the algorithm and this is an example of a graph that we
+have been, we have been working with. Remember, this is an algorithm that
+takes as input a graph, like this one, a source node, in this case,
+I'm going to assume it is zero, and it's going to compute the distance,
+dj, to every node, j, from node zero. Okay? So in this case, this is our graph and
+the initial node, i, is 0. Okay? So [COUGH] how is this
+algorithm going to work? I will, we will keep track of djs. The first thing that the algorithm does,
+is that it initializes Q to an empty Q. So we start with,
+I'm going to have Q here. It's going to be an empty Q, okay? And, this is the first
+thing in the first line. Then, it says, for every node j,
+initialize the distance to infinity. So, we are going to have now,
+d 0, equal infinity. D1 equals infinity. And d3 equals infinity,
+d4 equals infinity, d2 equals infinity and d5 equals infinity. This is, now we are done with lines 1,
+2, and 3. Then the fourth thing it says d i is 0. What, let's set the d i to 0, i is the
+specific node that's part of the input. So we are going to go [COUGH] things that,
+that, i is zero, we are going to go to node zero and
+now we'll reset its distance to zero. From infinity to zero. Okay?
+So now, this distance is zero, here, okay? And the next thing we'll do is that we
+will push that node i onto the queue. So now the queue is going to have node i,
+which is zero. I is zero,
+therefore the queue is going to have zero. The, the convention I'm going to use is
+that the head of the Q is on the left, the tail of the Q is on the right. So every time I add something to the Q,
+I'm going to add it on the right. Every time I take something out of
+the Q I'm going to take it from the left. So now after line five,
+we have distance to node: zero, zero. The distance to every
+other node is infinity. The Q has only one element
+on it which is node zero. The initial node. Then we go into this wide loop, and this loop says as long as the Q is
+not empty, do the following work. We look at the Q, is it empty? The answer is no. So we go into this loop and
+start doing work here. What is says first is j is dQ of Q. So take an element from the Q. Remember, this is not a random element,
+this is not any operation we can, we can have in mind. This says that remove the element
+that's at the head of the Q. So in our, in our drawing there, remove the leftmost element in
+that list that I'm showing. J is going to take that node so now at this point,
+j is the element at the, at the Q. J is going to be zero, okay? So it's going to, when we do dQ, then that
+element not only do we see what's on the, in the head of the Q,
+but we also remove it. So dQ removes the element from the Q and
+returned it to us. So now after this step,
+I have the Q is empty, okay? So now, j is, is zero, the Q is empty. Then we say for each neighbor, h of j. For each neighbor, h of j,
+what are the possible values of h? J is 0. I go now to the graph. I say, okay,
+what are the neighbors of this? For each neighbor, it's going to go
+through them in some sort of order. Okay? There is no specific order,
+doesn't have to go 1, 3, 4. It can go 3, 1, 4, 3, 4,
+1, or 4, 1, 3, and so on. We can, we can use, for example, let's just, to make sure
+that nobody misunderstands things. Let's assume that it's actually going to
+try the neighbors in the order of 3, then 1, then 4, okay? So first, it's going to go to h,
+the first neighbor is going to consider, is going to be node 3, okay? So, it says for each neighbor,
+the first one is node 3. If dh equal infinity do. Is d of 3 infinity? The answer is yes. So this condition holds. So we come to this point here. When we come here, we say,
+d h is d h, d h is d j plus 1, sorry. This is d j plus 1. Dh is dj plus 1. D j, remember j is 0. It's d0 plus 1. D 0 is 0. D0 plus 1 is going to be 1. So now, d3 gets updated,
+and its distance is 1. Okay? Once we update the distance to node 3,
+we push left node into the Q. So now the Q which was empty,
+we put, put the node H. H is 3, so 3 goes into the Q. Okay? We are done with node 3. We come back to this loop for the next
+neighbor of, of node j, which is node 0. We say that the next one we are going to
+consider, for example, is node 1. So we come to node 1. Now we look at h equal 1. We ask, is d of 1 infinity? The answer is yes. What we do, is we update the distance of 1
+to be d of 0 plus 1, which becomes 1 now. And we push this node 1 on to the cube. Remember it goes on to the tail. So now the cube is going
+to have node 1 also. Okay? We are done with node 1. We come back now to other
+neighbors of node 0. The next neighbor is going to be 4. So now h is 4, okay? H is 4. We ask, is d of 4 infinity? The answer is, yes. We come here,
+we update d of fourth to be d j plus 1, d0 plus 1 which is 0 plus 1, which is 1. So this is updated now. Once this update,
+we add the node 4 on to the queue. Again it is added to the tail. Okay? Now, we come back to this loop. To say for each neighbor are there
+any more neighbors of node 0? The answer is no, so
+we are done with this. Okay?
+We are done with this for node zero. We exit from here. We come back to this loop that
+says while Q is not empty do. Is the queue empty? The answer is no, so
+we come back to this, inside this loop. Then since the queue is not empty, the first thing we do is that j is
+the element at the head of the queue. Now, when we look at the queue, what is the element that's
+at the head of the queue? It is 3. So j, now, is node 3. Since we dequeued it,
+it is gone from the queue. And this is what the queue now,
+the state of the queue is. We have node 3 here, we now ask for
+every neighbor, H of, of J. J is 3. Now let's look at every
+neighbor of node 3. So what are the neighbors of node 3? It has two neighbors, 0 and 1. So the first one is h, is 0. We ask is d of 0 infinity? The answer is no, so this doesn't work. We don't come inside this. The condition doesn't hold. We come to the other neighbor, h is 1. The other neighbor of node 3 is 1. Is d of 1 infinity? The answer is no. We don't come here. Then we ask, what about other neighbors,
+there are no more neighbors, we are done. Okay? So actually, when we came to node 3, and we looked at all of our, of its neighbors,
+since none of them had distance infinity, actually it was nothing
+done by the algorithm here. Okay? So now we come back, and say,
+now, is the queue empty? The answer is no. We say remove an element
+from the queue and put in j. This now becomes j now is 1,
+and the queue is in this state. Now we go to node 1, we say for
+every neighbor h of node 1 do. What are the neighbors of node 1? They are 0, 3 and 2, okay? So the first h is going to be 0. We are going to come here as d 0 infinity,
+the answer is no, we don't do anything. We look at another neighbor. Another neighbor of node 1 is node 3. Is d of 3 infinity? The answer is no, we don't do anything. We come back to our next neighbor. The next neighbor is 2, node 2. Is d of 2 infinity? The answer is yes. So now we say d of h, h is 2,
+d of 2, is d of j plus 1, j is 1, so
+this d of 2 is going to be d of 1 plus 1. D of 1 is 1, plus 1 is going to be 2. So now this gets updated. We put, we put this node h on the queue. So node 2 now goes onto the queue,
+and it goes again on the right. Okay? Now we are done with node,
+with node 2, with node 1. There are no more neighbors of it. We come back to the queue. We come back to the queue, we said okay,
+now remove an element from the queue and put it in j. The next one is going to be 4. So j now is 4. And now, what happens here? For 4, we say okay,
+let's look at all the neighbors of 4. The first neighbor is going to be zero. H is 0. We say is d of, of 0 infinity? The answer is no, so nothing happens. We look at the next neighbor of 4. Next neighbor is 2. Is d of 2 infinity? The answer is no, we don't do anything. We look another neighbor of 4, which is 5. So now h is 5. Is D of 5 infinity? The answer is yes. Since d of 5 is infinity,
+now if we update its distance, d of 5 is going to take d of 4 plus 1,
+because j is 4. D of 4 is 1, plus 1 is going to be 2. We update this to 2. And we put h under the queue,
+which is node 5. Now, node 5 goes into the queue. And again, because we, I forgot,
+since j is 4, we had to de-queue it first. So it's not there. And this is now the state of the Q. [COUGH] We come back to this,
+to this line, is queue empty? The answer is no, we d q the,
+here we get an element from it, it's going to be two,
+once we get 2 j is 2 now. [SOUND] j is 2. We look at all the neighbors of j,
+[COUGH], it has two neighbors, h, it has neighbor 1 and
+neighbor 4, but d for both of these nodes is not infinity,
+so we don't do anything. So once we look at 2, its neighbors, the distances have
+been computed, we don't do anything. We remove 2, we, we are done with 2. We come to the Q, is it empty? The answer is no. We take, we take the element on the Qj,
+in this case it's going to be 5. And the queue is going to be empty now. We come to 5,
+we ask about all the neighbors of 5. It has one neighbor 4, is d of 4 infinity? The answer is no. D of 4 is 1. We don't do anything. We come back to the, to this line,
+while Q is not empty. We look a the Q, it is already empty. So we cannot, we don't do anything here. We come back to this line,
+we say return d. D is, d 0 is 0. D 1 is 1. D 3 is 1. D 4 is 1. D 5 is 2. D 5 is 2. So we are done. This is how the algorithm would run. Now notice that if there was again node 6
+here, that is not connected to anything, this node would not have been
+added to the queue at any point, in the initialization step, it would
+have gotten d, d 6 equal infinity, and by the time we have finished the
+algorithm, it wouldn't have been touched. Therefore when we return d,
+it would have returned d6 infinity. Okay? And this is how this algorithm works.

@@ -1,0 +1,145 @@
+Now that we understand [COUGH],
+we, we understood the problem of the small world effect and what we,
+what is, what is it that is asked of us. And second, that we formulated it cleanly
+as a graph theoretic problem where the input is a graph, the output is
+a distribution of the realized distances. We move to the third step,
+which is designing the algorithm. In the, in algorithmic thinking again,
+the third step is designing the algorithm. [COUGH] So now, the question is,
+how do we come up with an algorithm, that will compute distances
+between every pair of nodes? Okay? And we will start with the first attempt,
+which I would argue is the, probably the first attempt that
+anyone would take at such a problem. Since we have defined what distance
+means in a graph we can just follow that definition, and
+try to turn it into an algorithm. Remember definitions said that
+the distance between two nodes, i and g, is the smallest k for which there is a
+path of length k between these two nodes. The smallest k. Again, since we don't allow self loops, we are usually looking at
+the smallest of k of 1. If I have two nodes that are different,
+the smallest distance between them can be 1, because they can be
+connected by an edge. So, here's the simplest algorithm,
+that probably anyone can come up with. Given the two nodes, i and
+g, that are different. First, ask the question. Is there a path of
+length one between them? If the answer is yes,
+we know that is the distance between them. We can return one, and
+say the distance is one. We are done. If no, if the answer is no,
+then we have to increment that key, and say is it a path of length
+two between i and k. If yes, since there is no path of length
+one, and there's a path of length two, and the distance is two. We can return two and we are done. If no, then we ask is there
+a path of length k, three. If the answer is yes,
+we say the distance is three. We are done. If no, we try four. And so on. And here's the algorithm. So we, our first problem in this course,
+here's a very simple algorithm. It, I would say that it is very
+easy to argue it is correct. Because I'm just following the definition. Someone defined the distance for me as the smallest k, for
+which there is a path of length k. I am doing, I'm,
+I'm going in a brute force manner. And I'm trying to check every possible
+case starting from one, going to two, to three, to four. So an algorithm is very simple to try. It is very simple to implement, I would argue, and it's very clearly,
+it's clear, it's clearly correct. Right? So the question is [COUGH] am I done,
+can I start implementing this algorithm? The problem with the algorithm
+we just described is, what is the maximum value
+of k that we should try? So, I try a path of length one. The answer is no. Then two, the answer is no. Then k equal 3, the answer is no. And I keep incrementing,
+incrementing, incrementing. Where do,
+am I going to eventually hear a yes? Is it always the case that
+if I give you a graph, and a pair of nodes in the graph, that this
+algorithm will eventually find a k, such that there is a path of
+length k between these two nodes? Now, why is that important? In this course. We, we would want to use algorithms
+that eventually terminate. I'm not interested in any
+algorithm that might run forever, in some instance of the problem. So I need to guarantee, that my algorithm
+terminates on whatever input I give it. So, again, I give the, the, the algorithm as input, a graph and a pair
+of nodes and I say compute the distance. It goes through this repetitive
+iteration of checking if there is a path of length one, two,
+three, four, and so on. And again, the first question I asked,
+is there always, is there always a path of a finite length,
+between any pair of nodes? And the answer is no. Because here's an example of a graph. [COUGH]
+If we follow the algorithm we just described on this graph, and
+the two nodes zero and three for example, the algorithm is going to say, is there a
+path of length one between zero and three? The answer is no. Then we said, the algorithm says, is there a path
+of length two between zero and three? The answer is no. Is there a path of length three? The answer is no. Four?
+No. Five?
+No. And in fact, there is no path of any
+finite length, between zero and three. So the question is, where do we stop? When do I stop and say, no, there is no
+algo, there is no path of a finite length? Or that the distance between,
+zero and three is infinity? If we use mathematical scales here. We can reason about it and get to
+the conclusion that, if I have four nodes, if I have four nodes,
+then if there is a path between zero and three that path, the length, I can always
+find a path whose length is at most three. Okay, so there is, again a path between
+0 and 3, it's length, has to be, there has to be a path whose is at most 3. Or more generally if I have a graph
+within nodes, and I take any two nodes from the graph, there is, if
+there is a path between these two nodes. I can always find the path whose
+length is at most in minus one. I encourage you to think about why that
+is the case, and this is our first encounter of one math and math skills, are
+very important when we design algorithms. We cannot really decouple the two, we cannot say we want to only study
+algorithms, we don't care about math. We have to use mathematical tool,
+to be able to design a good algorithm. So in this case,
+there will be cases, input, for which there is no paths between two,
+a pair of nodes; which means that if I continue with that algorithm
+I will never terminate. I have to put the bond, at which I can be certain that there
+is no path at that point and I can say. No, there is no path, and
+the distance is infinity. Using some mathematical reasoning, I can
+get to a point where if the graph is, has N nodes, I can say try n minus 1
+at most, a path of length n minus 1. If you fail with one, two, three,
+four, all the way to n minus 1, you can terminate safely and
+say there is no path. Of length, of any finite length and
+the, the distance is infinity. Okay? Now, the last question we
+have to answer is that, when I say is there a path of
+length k between are pair of nodes. How do I check that? How do I check, if there is a path that's
+now look at, at the, this graph here. And I say, the main question is,
+is there a path of length two between nodes. 0 and 3 for example. Of course the answer is no. If I look at node 0 and 3,
+there is no path of length two. But how do I check this? How does a computer program, and
+how does an algorithm test this? Now, notice that we go back to
+the definition, how do we define distance? How did we say a path of length two? We said, if,
+if we are looking at path of length two. It, basically,
+if you go back to the finish, and it says, is there a node that I can
+put between these two nodes, 0 and 3? If I take 0 and 3,
+can I put some node here? Such that there's an edge from 0 to
+this node, and an edge from this. Because if there exists such a node,
+then this path between 0 and 3 exists. What node can this be? I don't know, we can try each one of them. I can put 0, 1, 2, 3. Is there a path from 0 to 0, then 0 to 3? No.
+0 to 1, 1 to 3? No.
+0 to 2, 2 to 3? No.
+0 to 3, 3 to 3? No. Therefore we say that there is no path. So. How do we,
+again without thinking too much, how do we check if there is a path
+of length k between 0 and 3? The idea is very simple, going back
+to the definition it tells me check, if there is a subset of k minus
+1 of nodes, such that there is an arrangement of them between these
+two nodes that will make a path appear. Okay?
+So mathematically, I can say if you have a node, a pair of
+nodes, and you want to check if there is a path of length k between them, try every
+possible sub-set of k minus 1 nodes. And try every arrangement, or
+permutation of these k minus 1 nodes. And put them in between. So try every sub-set of k minus 1,
+and for each one of these sub-sets try every possible
+arrangement or permeatation of them. If you get to a point
+where you could find, these k minus 1 nodes and arrange them,
+in such a way that there is an edge between every pair of consecutive one,
+you say yes there is a path of length k. If you tried every subset
+of size k minus 1, and if you tried every permutation
+of every sub-set, you still couldn't find a situation where you have
+and edge between every consecutive peer. Then at that point you say there is no,
+there is no path of length k. And as we said before, you wrap this, this procedure by another layer of
+looping over k from 1, to n minus 1. You first write k equal 1, then 2, then 3
+and you can go all the way to n minus 1. If you find any such thing on the way,
+then you say, yes, here is the path and here's k. If you don't, if after trying k equal 1
+and 2 and 3, all the way to n minus 1. And you failed,
+then at that point you can terminate. The algorithim can terminate and
+say there is such past, or that the distance is infinity. The pseudocode, or the description of this algorithm is
+given in its entirety on the slide. This algorithm can be then
+to every pair of nodes. And will compute the distance,
+between every pair of nodes. The nice thing about this algorithm
+is that, it is very easy to describe. It is very easy to, to implement. It is, it belongs to a category of
+algorithms that we call brute force. It's an algorithm, that literally follows the definition
+of the problem to try to solve it. It is, I would, again as I say,
+it is often the first technique that we try when we, when we are,
+we encounter a problem for the first time. The, the brute force algorithms are, as I
+said, easy to describe, easy to implement. And it's very easy to argue that
+the algorithm I described is correct. Because it's just following definition. It's trying every possible key, and
+every possible subset of side skill. And every possible
+arrangement of that subset. So I'm not missing anything. The, and, and So it's easier to, to establish the correctness and
+implement it. What is the problem with that algorithm,
+or brute force algorithms in generals? The, the Achilles heel of, of brute
+force algorithm is usually efficiency. If you think about this, or if you implement this algorithm,
+and you start running it. On, on Facebook graphs. If you run it on a Facebook graph that
+has five nodes, it's going to run, it's going to give you results. However, as like the size of the graph
+starts growing and you start running it on graphs or on networks of size ten,
+ten individuals, 20, 50, 100. Before you reach 100, before you reach 50,
+you will notice that this algorithm will take years and
+years to run on that data, so the good thing about brute force algorithms is,
+easy to implement, easy to describe. The major problem with them is efficiency. And this brings me to our next topic,
+which is algorithm efficiency. How do I analyze the running
+time of this algorithm, and show that it is actually not efficient and
+it's not worth implementing?

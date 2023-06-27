@@ -1,0 +1,167 @@
+Okay.
+So now, that we have talked about what
+we mean by efficiency and that we will focus on time as a metric for
+efficiency how long an algorithm takes. The next question is how
+do we measure efficiency? How do we measure the amount
+of time an algorithm takes? Again I remind you, that we are not
+talking about how much time, this specific Python implementation
+of an algorithm takes. We are talking about the algorithm
+given in pseudocode, just still in theoretical terms,
+how long does that algorithm take? Of course, we are not going to go into the
+number of seconds and number of hours, and so on, about the algorithm,
+because that's not doable. That, in order to know how many,
+how many seconds or how many minutes an algorithm
+is going to take, it has to be implemented, it has to be
+run on a specific machine, and so on. So then, we have lots of issues
+that are beyond our control, and beyond the specifications of an algorithm. If I ask, how,
+how many minutes does an algorithm take, then I'm talking about the specific
+implementation on a specific machine. Once you change the computer or change the
+machine that you are running the algorithm on, or the implementation on, then it's
+going to, the time is going to change. So, we are not interested in that
+type of analysis at this point. We are asking a question that this
+algorithm that we have developed, or any algorithm we see, if we take an
+algorithm from a textbook, how much time, roughly, how much time does it take? So, the question is,
+what do we mean by that? And when, the,
+the most important thing, or the most crucial thing to know
+about running time efficiency. And how we measure it, is that it is all a function of
+the input size, the input size. So, if I look at that algorithm and I take
+a certain input to that algorithm, and I measure the size of that input, then I ask
+how many operations, how many operations is that algorithm going to, they going to
+perform as a function of that size? So if the size of the input is five, whatever five means,
+what is the running time? How many, how many operations is
+the algorithm going to execute? Is going to execute five. Which is equal, equal to the number
+to the, to the size of input. Is it going to execute 25,
+which is 5 squared, or is it going to execute 32, which is two
+to the five operations, for example. So, it's all a function of the input size. How much time or how many operations
+is the algorithm going to perform as a function of
+the size of that input. Now, what is the size of an input. Now that's not the, that's not
+the simplest concept to introduce here. But we will think about it in
+classes of algorithms, okay? So I will think about it, for example, what is the size of an input
+of an algorithm that deals with grass? Or that deals with, with lists,
+or that deals with strings, or that deals with numbers? Okay.
+So, we will see lots of algorithms in
+this course that deal with graphs. The input is a graph, or two graphs,
+or ten graphs and so on. What is the size of a graph? We will assume that the size of a graph
+is given by either the number of nodes in that graph, or the number of
+edges in that graph, or both. So, if we write an algorithm, for
+example, that takes as input a graph, an undirected graph, and
+computes all pairwise distances, the distance between every
+pair of nodes in it. Well, then I ask what is
+the input size of the graph? I count the number of nodes in it. I count the number of edges in it. And I use these two
+parameters as the input size. So, it might have N nodes and M edges. N and M are the parameters
+that denote the input size. Then, when I say, what is
+the running time of this algorithm, I would like to get to a function of N and
+M. So, I might say that the running
+time of the algorithm is N squared. It takes time, it takes time that
+his proportional to N squared. What that means, is that if you have
+ten nodes the algorithm is going to, to, to perform on the order of
+10 squared or 100 operations. If you have 1,000 nodes, it will perform
+on the order of million operations. It can be also that the running
+time is N plus M, for example. Then, if you have ten nodes and, and five edges, it's going to perform in
+the order of 10 plus 5 operations. Okay? So, we need to determine
+the size of the input. Again, in the case of graphs, the number
+of nodes, the number of edges, or both. And then we need to think about the number
+of operations that algorithm performs, as a function of N and M. This is how we measure running time. It's a function, we need to get
+a function of the size of input. In the case of graphs, a function of N, or
+a function of M, or a function of N and M combined. If we think about sorting and
+searching algorithms, okay? So, these are some of the traditional
+algorithms that are covered basically in every classic algorithms textbook. An algorithm for sorting, if I give
+you a list of numbers n numbers for example, and I want to sort them in
+ascending order, in descending order. You know, when we grade and
+the, the exams in the course, we usually sort the,
+the grades in descending order. We want to see what is
+the highest grade in the course, what is the lowest grade in the course? So that we get an idea
+about the performance. How do we sort a list of a,
+of a grades, for example? Now, we are not now talking
+about that algorithm. But if I have an algorithm
+that sorts a list of numbers, of n numbers, what is the input size here? It is, it is accepted that the input
+size for sorting algorithms or searching algorithms. For example, I have a list of n names and
+I'm going to search for a specific name. The input size in this case is,
+is the length of this list. Or how many elements are in that list. So if I'm sorting a list of 100 integers,
+then the size of the input here is 100. Or more generally is that, if we have a
+sorting algorithm that works on a list, or a searching algorithm
+that works on a list, the input size is usually
+the length of that list. We will see algorithms
+that work on strings. Okay?
+So, some lists or sequences of, of alphabet symbols. So, for example, I will have certain text,
+and I'm going to be looking, searching for certain text in it. Okay? So, I have the, the text that
+corresponds to a book for example, and I say, find all the instance of
+the words school in that text. Okay. So the input there is a very long strain
+that corresponds to all the texts. And the algorithm is going to perform
+some operations to find the number of instances that the world's
+school appears there. What is the,
+what is the input size in this case? When we have an algorithm
+that operates on string, usually the input size is the number
+of characters in that string. So if I have the word school for
+example, there is S-C-H-O-O-L. The input size is six,
+I have six characters, okay? And so on. There is special type of algorithms that
+are used in an area like cryptography for example, where we have to encrypt text or
+encrypt information and decrypt it. The, there we use algorithm
+that run on numbers, for example you can write an algorithm that
+checks if a, if a number is prime. So, we will see for
+example you can see an algorithm called Is prime that takes input an integer P. So the question there,
+what is the size of this input? What is the size of the input P? Now, we say that if you're
+sorting a list of N numbers, then the size of the input is N. So here, one can look at this and say this is a list of one number in some
+sense, so the size of the input is one. However this is not accurate in this case. When we look at this kind of algorithms
+that look at number and try to find for example, the factor of that number or the,
+we, w, check if the, if the number is prime, then the input size here,
+is the number of bits that are needed. To represent this number, okay? So it's usually because in, in computer science we focus
+mainly on zero one representation. Or the presentation of a number
+in the binary, on a binary scale. Usually the number of bits needed for representing p is the log of
+the value of P to the base two. So it's log of P to the base 2. This will be the number of bits, zeros and ones, that I will need to
+represent this number. In this case, when we look at algorithms
+that deal with numbers, with integers, for example, the size of the input is
+usually the number of bits required. Okay? Now it is, when we talk about,
+about running time efficiency, as I say it is all
+a function of the input. But then okay, if I specify the input size, and
+I say it is N and M, then what do we do? Once you specify the input size and say that there are N nodes in the graph,
+M nodes, edges in the graph. Then it is all about counting operations. How may operations is
+the algorithm going to perform? Okay? So here,
+we have to make lots of assumptions and we do make these assumptions when we, when
+we analyze running times of algorithms. And the, one of the the the major
+assumption we make is that. All individual operations in
+the algorithm, like comparison of values, like multiplication of two numbers,
+addition of two numbers, division of two numbers,
+indexing into an array. If I have an array I say what is the
+element at position seven in the array. All these kind of operations or
+calling a function, or returning from a value to a function. All these kind of operations,
+each one of them, we will assume that it takes fixed amount of time, that is
+independent of the input size, okay? Of course, this is not the, the,
+the assumption that is really, practical. Or, or, if does not reflect
+what happens in practice, because division of two numbers that have,
+that have million bits in them is going to take much longer time than
+the addition of such two numbers. But, here we are trying, not trying to get
+the exact number of operations that the, the, the algorithm is going to perform. We are trying to get
+an approximation of that number. Okay? So the major assumption we are going to
+make is that, every operation, every individual operation,
+like multiplication, addition, and so on is going to fixed amount of time
+that has nothing to with the input size. Okay?
+Now, we will focus, when we talk about the performance
+of an algorithm, one of the, the crucial things to,
+to state up front is. Under what scenario are we
+analyzing running time? There are three possible scenarios for
+analyzing running time. There is worst case. In the worst case,
+how long is the algorithm going to take? There is the best case,
+which is in the best case, how long is the algorithm going to take? And there's an average case, on average,
+how long is going to take for the algorithm? Now, the question is what
+do we mean by worst case? What do we mean by best case? What do we mean by average case? In this course we will mainly
+forecast on worst case analysis. And what do we mean by
+worst case analysis? When we talk about the, the running
+time as a function of input size, and I say the input size is,
+the graph has N nodes and M edges. When we talk about worst case
+analysis this is what we mean. Of all graphs, of all graphs that
+have N nodes and M edges, which one of these graphs, causes the algorithm
+to take the largest amount of time? Again of all graphs that have N nodes and M edges, which one causes the algorithm
+to take the longest amount of time? This will be the worst case analysis. Notice that we fix the,
+the input size, and for that fixed input side we ask,
+which input of that side is going to cause the algorithm to take
+the longest amount of time? We never ask what is
+the largest size of an input, that is going to cause the algorithm
+to take the longest amount of time. That is actually a useless question in
+some sense, because just keep increasing the input size you keep increasing
+the running time of that algorithm. So, the answer will be trivial. The largest possible input size is
+going to cause the largest possible time. And that's not what we are looking for. We are asking of all inputs of
+a given size, which one gives the, the largest amount of time for
+the algorithm. And in this class,
+we are going to focus on this, on this, on worst case analysis of running
+time as a function of the input size

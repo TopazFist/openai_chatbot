@@ -1,0 +1,133 @@
+Okay, so, last time, we, we basically
+looked at the brute force algorithm for computing distances. And for each line in the,
+in the algorithm, we basically wrote next to it the number
+of operations it's going to perform or the number of iterations
+it's going to perform. Because for loops, for example, we need to talk about how
+many times they need to, to iterate. For other lines,
+how many operations each take? Now the question is,
+what does this add up to? Okay?
+Because at the end of the day what we want to understand is how long does
+the algorithm take, and how bad is this? Or how good is this? Because if I add up this and
+it it's going to tell me that there are going to be five
+operations only, that's a good algorithm. If I add up this, and
+it tells me that for just ten nodes, it's going to perform over 10 million
+operations, then I need to think seriously before I implement this algorithm,
+because it wouldn't seem feasible. So what do these things add up to? It's not it's not a hard exercise, but we have to be careful about
+how we add up numbers. Because this, these iterations here
+in particular, one, two, three. They have k minus 1 in them. Or the variable k. And k is the variable that is
+going to go from one to n minus one. So, we have to be careful
+about how we add them. Of course we can do handwaving and
+put upper bounds and start doing some rough calculations. But that might actually take us very
+far from the actual running time. So, for once I'm going to try to
+do a careful summation of these, of these numbers operations to try to
+get at what kind of formula we get in terms of n, because remember,
+I can not give a formula in terms of k. K is not part of the input size. Okay?
+My formula has to be a function of n and m or, either n or m or both of them. M is not showing anywhere here. We have to, to think about it
+as in terms of, of n here. Okay? So let's start here. The, one of the easiest thing to
+think about is that this one here, this operation is outside this loop. And this operation outside this loop. So, lines 1 and 14 are outside the loop,
+and they going to, each one of them's going to be performed
+once when the algorithm is run. So line 1 and 14 contribute 2 together. So, line 1 and 14 contribute 2 together. Then we come, we are done with these
+two lines, we come to this loop here. As we see that this loop is going to
+iterate n minus 1 times n minus 1 times. Inside this loop we have this line 3,
+line 4 and line 13 are going to execute ones each. Okay? For every iteration of this wide loop,
+we're going to do one, two, three. One, two, three, and so one. This loop is going to
+iterate in minus one times so we have plus three times n minus 1, okay? Now, we come to these loops. Now, even though this loop
+is wrap with this while, we can forget about the while, we don't
+have to multiply n minus 1 by this. But we can think about
+this in terms of the k. So the first time we come,
+we enter this loop, k is going to be 1, and it's going to
+look at every subset of size zero. The second time is going to look at,
+the second time we come through this loop it's going to
+be looking at every subset of size one. The third time is going to be looking at
+every sub-set of size three, and so on. So, in this case here,
+we can say that now we have, as k goes from 1,
+k goes from 1 to n minus 1. We write this, and we have to sum, the
+number of operations it's going to take. So we have a summation,
+from k equal 1, to n minus 1. This symbol here, Big Sigma, from k equal 1 to n minus 1 says that
+we are going to take the summation, of some term, that has, that is a function
+of k, from k equal 1 to n minus 1. Summation of what? The summation of when we have, for every k, we are going to look at
+every subset of size k minus 1 of v. We say that this is going to take,
+n choose k minus 1, okay? It's going to take n choose k minus 1. Then, for every such subset we are
+going to look at every permutation of it. For every permutation of it. And this permutation is going to
+take k minus 1 factorial. Okay? So, for every subset of size k minus 1,
+we're going to look at every permutation. For ever permutation, we are going to
+be doing all this work, okay? For every permutation, we are going to
+be doing all this work here. Okay?
+So how much work is here? We have one is going to be performed. This is one. We have two. This is line 7 is going to
+be performed once. Line 11 is going to be performed once. Notice that since we are looking
+at worst case scenario, we are never going to hit equal true. This is, this, this condition here
+will never evaluate the truth, so you will never perform this. So we'll have one and two. They will always be performed. Times 2, plus so we have two here. Plus this loop here is going to perform
+from zero to k minus 1 which is k times, k times, we will perform this and this. Okay?
+So, for k times, we are going to check,
+if it is not an edge. Takes 1 operation. We are going to assign,
+assign force to it, okay? So here, plus 2k. And this is the running time, okay? So here, if I sum up all these,
+I will get this formula for the running time here okay? So it's 2 plus 3 times n minus 1,
+plus k equal 1, for, sum from k equal 1
+to n minus 1 of this. Okay? So now we get to this running time of the
+algorithm, how bad is this running time? Okay? Of course, one way to think about this is
+to use some tool that will allow us to compute this. So you can actually write
+the Python program, a simple Python program that
+when will evaluate this term. And you can give it, you can give it
+different values of n and, and see how, how it grows. In fact, actually, I tried it. And if you give this this
+function n equal 2, for example, if you give this term n equal 2,
+it's going to evaluate to about 13, okay. So if the input graph has only two nodes,. This algorithm is going to do
+on the order of 13 operation. If you take n equal 5, it's going to
+do on the order of 500 operation, okay? So, notice this. I almost doubled the input size. I almost doubled the input size. The running time or the number of operations group
+by an order of magnitude okay? So it went from 13 to 500. Once I doubled this the number
+of operations did not double, it actually it grew,
+it grew much faster than that. Okay? Now if I take n equals 10
+[SOUND] this formula here, it evaluates to a number that is
+actually greater than 13 million. Okay? So notice again what's happening. I take I take a graph of size 2. The algorithm is going to perform
+an order of 13 operations. I take, I double the size of the,
+of the graph. I go to five. The, the algorithm performs
+over 500 operations. I took this and doubled it. I just went from five nodes to ten nodes. It's taken now over 13 million operations. Now, imagine now what would
+happen if I double it now. From n equal 10 to 20. If you look at this kind of growth, they're going from 13
+to 500 to 13 million. You can imagine if I double n, now all of
+a sudden the number is going to be huge. Okay? Much, much larger than 13 million. What does that tell me? First thing it tells me about
+this algorithm is that you know, it's take 13 million operations
+on a graph of size 10. Remember, what was or original motivation
+for this problem of computing distances. We wanted to look at that problem of,
+is the world small and trying to quantify whether we have
+a small world effect in a given network. And we said for example, our input
+network can be the Facebook network. Facebook network today, if we want to get
+all the data on the Facebook network. It is estimated to have over
+a billion nodes, billion nodes okay? We are talking about n equals 10 nodes
+that has taken over 13 million operations now, imagine what would happen with
+this sort of growth from 13 to 500 to 13 million what would happen if i
+replaced n equals 10 by 10 billion. Okay?
+Now, even if we don't analyze all of Facebook, even if I just
+sample 1000 nodes, okay, just take 1000 accounts of Facebook and
+analyze, now replace n by 1000. And you will get basically a number,
+that no matter how fast the computer is, we will never be able to analyze
+it using this algorithm. Okay?
+So I repeat, that it's not just about the operations. It's going to grow to a point that no
+matter how fast the algorithm is, even the computer is, even if it can perform 1
+billion or 10 billion operations a second, it's not going to be able to handle
+a graph with even thousand nodes in it. Okay? Now, the second point I would like
+to make here is that if you look at this kind of analysis, you can immediately see with this type
+of formulation here that it is tedious. It is tedious because we have to
+look at every, at every line and count operations and
+do careful summation and so on. Now does this matter? Does this equation matter? Or does it, what matters to me is
+that when I look at these numbers I'm seeing that the function
+is growing very fast. Okay? Now if I look at this algorithm
+from a different angle. I say, okay let's think about roughly
+about what is this algorithm doing? Notice that in the worse case, this algorithm if going to
+be looking at every sub-set. It's going to be looking at every
+sub-set size of zero, one, two, three, four, five, all the way to, to n. Right?
+To n minus one. So, what is the, what is the number of
+sub-set of a set of size n minus 1? It is 2 to the n minus 1. Of course, this algorithm is
+doing much more than this. But all I can say is that this, the running time of this algorithm has
+a lower bound of 2 to the n minus 1. And this is what we call an exponential
+function that grows very fast. As n grows if you double n, the running
+time is going to grow exponentially. It does not grow linearly, for example. Okay? So, the only we can say that this,
+this algorithm. I can do much more hand waving and
+avoid this and say, I can bound this one, the running time of this algorithm
+from below by 2 to the n minus 1. This is sufficient to tell me this
+is a bad algorithm because it's going to take at least exponential
+amount of time which grows very fast. As n reaches thousand. As I said, you know, if I want to analyze
+a Facebook network with thousand nodes, 2 to the 1000 or 2 to the 999, this is not a number of operation that
+today's computers can deal with and probably not the computers in ten
+years that can deal with, okay? So, we can do this kind of analysis, but we can start thinking about the growth
+of functions, and start to think about, instead of this exact term,
+I can start thinking about lower and upper bounds to understand roughly what
+is the running time of this algorithm

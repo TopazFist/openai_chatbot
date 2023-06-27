@@ -1,0 +1,115 @@
+So what is algorithmic thinking? And how does it differ from, for example,
+a traditional algorithms course? So in my opinion, traditional algorithms
+course have the following structure. Here's a problem,
+write an algorithm for it. Analyze the algorithm, its correctness,
+its complexity and so on. But the question is, the broader
+question is, for us in computer science, where do we come up with these problems? So when someone gives me a problem and
+say write and algorithm for it, that problem is
+mathematically formulated. All I need to do is come up
+with an algorithm for it. But who formulated that problem? Where did that problem come from? And why am I solving that problem? So algorithmic thinking is that the way
+we designed this course is to try to tie all these things together and
+put it in the broader theme, which is, what is computer
+science used for in many domains? So the way I look at algorithmic thinking
+is basically a five step process. The first process or the first step,
+sorry, the first step is about getting a problem from a domain expert and
+trying to understand what that problem is. Just to give you an example, suppose
+I'm talking to a social scientist and that social scientist tells me that
+they want to understand if friendship is transitive, or in some sense,
+if it's always the case or how often is it the case that the friend
+of my friend is also my friend. So if I'm friend with person b, and b is friend with person c,
+is c my friend as well? It's a question of interest to social
+scientist and even beyond that. Not necessarily in terms of friendship. But this kind of transitivity is of
+interest in biology, for example, and other domains. So my first question going back to
+the social scientists in this case is that what is it that
+you are going to give me? And what is it that you want back from me? So input, output. This is crucial when we develop
+a algorithm and when we write a program. What is it that the social
+scientist is going to give me? What is it that social scientist
+is going to need back from me? And the other thing is, I need to start
+understanding, if there are multiple possible solutions, which one
+does the social scientist prefer? So I go back to the social scientist and
+say, okay, what is the data that you
+are going to give me? Today, in today's age, the social
+scientist might say I have curated some data, some Facebook data,
+on thousands of individuals. So they're going to give me Facebook data,
+accounts for users, and also there's going to be some information about if user
+a and user b are friends on Facebook. And what they want to get back from me
+after talking back to them, they say, I want you to quantify how often it is
+the case that if a is a friend with b, and b is a friend with c,
+then is a also a friend with c. So the first part is that I went back and
+forth with the social scientist. I understood what they want from me. What is they are going to provide to me? What I'm going to provide to them. The second step in algorithmic thinking
+is going to be about formulating that problem. Setting Facebook network, this is not something that's
+well defined for a computer. If I'm going to write
+the computer program, at the internalized data,
+I cannot say the data is Facebook network. I have to encode it somehow. So the second step is going to be about
+formulating the problem in terms of input output. So in this case, it's very important
+to use our mathematical skills, and use knowledge of representations
+to represent the data. So in the case of, again, this friendship
+question, it makes sense that once the social scientists give me the data
+that I represent the data as follows. For every individual,
+this is individual one, individual two, individual three,
+individual four, individual five. For example, the social scientist has given me
+information about five individuals. In addition,
+I'll tell the social scientist, in your data I want to know which pairs of
+individuals have friendship relationship. So they can tell me that these two
+are friends, these two are friends, these two are friends, and so on. These two are friends. Then what I have done now,
+is that I have formulated the input to my problem like this. And this kind of structure
+where I have these nodes. Circles that I call nodes,
+and lines between them. This is what we call graph. So graph is a powerful representation. In this case it consists of a set
+of nodes and a set of edges where every edge links two nodes together to
+tell me if they are friends or not. This would be the input, and
+then I have to say, what is the output? Of course when I say this is the input,
+in the course in algorithmic thinking, we will learn how to write this formally. So this, I cannot input a drawing
+like this to the computer. I have to encode it somehow. And then, what is the output? Again, for example, they are telling me,
+quantify for me how many triplets of nodes that have two edges and
+then also have a third edge. Because this is what transitivity is. If I1 and I2 are friends,
+I2 and I4 are friends. Are I1 and I4 friends as well? So here I need to basically say, I need the quantity,
+q, that corresponds or quantifies transitively in the graph in the input graph. Now we have to write this formally. I mean what is that, because if I
+tell a computer scientist quantity q that corresponds to transitivity
+in the input graph, I still haven't described it very well. So we will be learning in this
+course how to write this formally so that an algorithms person can
+understand exactly what we want. And we will learn how to do
+this specifically as well. So the second step of algorithmic thinking
+is being able to formulate the problem in terms of input-output. The third step will be, now that we
+understand how the problem is formulated and structured mathematically,
+I need to come up with an algorithm for solving this problem in the sense that
+the algorithm will take this as input and will give us that as output. In this course, we will be learning about
+different algorithmic skills, or different algorithmic techniques, that will help
+us solve these kinds of problems. And when we write that algorithm we
+have to reason about its correctness, we have to reason about its
+computational requirement. How fast, how slow,
+is it feasible to run on such a graph? This is a graph with two,
+four, five nodes. What if someone has curated
+the entire Facebook network? Today, Facebook is estimated
+to have over a billion nodes. If I come up with an algorithm, as we're going to run on
+a graph with billion nodes. If not, I have to start
+thinking about these things. So the third step is about developing
+the algorithm to solve the problem. The fourth step, after we have designed
+algorithm, made sure it is correct, it is efficient and so on,
+we have to implement it. So in this course you will be
+implementing algorithms in Python. And when we do the implementation
+it's interesting, because going from the algorithm
+that we developed in the third step to the implementation is
+not a simple translation. Because you have to be very careful. The algorithm can be correct. You might make mistake when
+you are writing the code. The algorithm can be efficient, and
+you might turn it into inefficient implementation when you write the code,
+and so on. But also at the same time,
+there is a positive side for going from the theoretical description
+of the algorithm to the implementation. Is that you can even use your programming
+skills to make the implementation even much faster than the theoretical
+guarantees of the algorithm. So going from the algorithm to
+the implementation is not the simple task of someone knowing the syntax
+of a programming language and translating the algorithm into it. No, you have to use some skills, to make sure that you
+implement algorithm correctly. But you also to try to make
+it even more efficient. So this is the fourth step
+of writing the program. Then the fifth step, which is the final step, is that I need
+to remember where did this all started. It started from a social
+scientist asking me a question. So now that I have written the computer
+program, I will take that program, take the data set that
+the social scientist has, analyze it using the program, and
+then give back the scientist the answer. So in this case for
+example, I might say 78%. What does that number mean? I'm telling the social scientist
+that in 78% of the cases where a is a friend with b, b is a friend
+with c, you also have a and c friends. So this is algorithmic thinking,
+the way I define it for this course and
+the way we'll be using it in this course. Again, it's five steps. Understanding the problem is the first. Formulating the problem is the second. Developing an algorithm is the third. Implementing the algorithm is the fourth. And then the fifth one is
+running it on the data and answering the original question.

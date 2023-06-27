@@ -1,0 +1,191 @@
+Okay.
+Recall now that our original problem that we are interested in is
+testing whether the, the small world effect or phenomenon
+holds for a given system of interactions. For example give a Facebook
+network we want to see. If we see,
+if we observe the small world phenomenon. Or if we have even a computer network,
+a network of computers, we want to see if the small world
+phenomenon also holds there. Because, again, you can think, for example, for a network of computers,
+if the, small world phenomenon holds for that system, it means that information can
+flow between these computers very quickly. Or, you can think about,
+about bad situations where an attack on the network can flow also
+through the system very quickly. So if one of the computers in
+the system is infected with a virus, that virus might spread throughout
+the network very quickly. So that was our original problem,
+is given a network. Which in it, by now, we know that we can
+represent its connectivity in terms of a graph, of nodes and, and edges,
+we want to check if that network, satisfies the war, the small world
+phenomenon and we, as we said, we took that problem, we formulated
+it as a graph theoretic problem of computing pair wise distances between
+every pair of nodes in the graph. And then plotting a distribution. And our first attempt was,
+okay let's come up with an algorithm that follows the definition of what
+is a distance in a graph. And that led us to what we
+call a brute force algorithm. And, that algorithm,
+we showed that it is easy to implement, it is easy to reason
+about its correctness. However, we also showed, that from the
+perspective of time efficiency, how long. The algorithm will take on any
+reasonable input of any reasonable size. We showed that that algorithm
+is not feasible in practice. We couldn't even run it on,
+on a graph, that had 100 nodes. Okay?
+So, the question is what do we do then? I mean, is that, is that the end of story? We cannot test if a network, if a large
+network has a small world phenomenon or satisfies a small world phenomenon. The answer is fortunately no. We don't,
+this is not the end of the story. In fact, we can think about
+computing distances in a undirected, unweighted or even directed and
+unweighted graph. Very quickly, okay? So we can come up with with an algorithm
+that's much more intelligent than brute force way of looking at every possible
+path of every possible length that led to, to to exponential,
+at least exponential amount of time. So, let's reason about how would we go
+about coming up with an algorithm that computes distances in a graph,
+in an unweighted graph, graph that has no. No weights on the edges,
+much more intelligently. And I will illustrate with a, with a,
+with a specific graph, just for the sake of illustration. [SOUND] So
+I will illustrate with this graph here. This is a,
+an undirected graph that has six nodes. And, we will, we will try to for example
+here I'm going to focus on one case of let's compute distances for
+example from zero to every other node. Remember that in the original
+problem we want to compute the, distance between every pair of node. Okay?
+So let me now focus on the problem that I want to compute the distance between
+zero and every other node in this graph. Now, [SOUND] the way we can do
+it more intelligently is to start thinking about
+looking at this graph and thinking how can I find the distance
+from node zero to every other node. I will denote by dj for
+example the distance, [SOUND] between node 0 and node j okay. So here the source node. Is, is fixed. I'm, I'm always focusing on node 0 and I want to compute the distance
+from 0 to every other node. The distance from node 0 to node
+5 is going to be represented by d sub 5 for example. So, when I look at this graph, the easiest thing to say is what is
+the distance from node 0 to itself. So the route from d, from node 0 to
+itself, which we call d0, is 0, okay. So now I know that at least, I can compute
+the distance from the node to itself. Then, what are the next nodes that
+are easy for me to compute distances? If I look at this graph and
+I know that the distance to node 0 is 0, now I can look at
+the neighbors of that node, remember the neighbors are nodes
+that are connected by an edge, okay. So if, if the, if my distance,
+if the distance to me from node 0 is 0, now I look at my neighbor. Going from node 0 to my neighbor
+is going to go through me, okay? If I am a node here the, the distance
+is going to go through me to that node. Now, a distance that goes through
+from 0 to one is going to be the distance to node 0 plus one edge,
+right? So if I look at all the neighbors of
+node 0, their distance from node 0. Is 1 plus the distance from 0 to itself. Okay.
+So I know that if I look at node 0 the distance itself is 0. Then I know that the distance
+from 0 to all its neighbors is 1. So I can immediately say, okay, for node 1, d1 [SOUND] is 1,
+d3 is one, d4 is 1. Now, notice I didn't go to node 1 and
+then node 2. I'm looking first at
+all the neighbors of 0. Okay? So, think about it as,
+I'm going to proceed in layers. At layer 0,
+[SOUND] I'm looking at the initial node. Okay?
+The node, node 0. Then, at, at layer 1. I'm going to look,
+[SOUND] I'm going to look at all nodes that are at distance 1,
+one edge away from node 0. And this is easy, again,
+because we have, if, if we for example, have, have an adjacent
+illustrative presentation of the graph. Then I look at node 0,
+I look at all the adjacent nodes of it. For each one of them I say
+the distance to these nodes are, is 1. Okay. After I'm done, I'm done with
+layer 1 now I can go to layer 2. What is layer 2? If I start from node 0 and I have
+computed the distance to its neighbors. I next move, I move in the next step, to
+the neighbors of the neighbors of node 0. So these are the neighbors
+at layer 1 of node 0. Now for each one of them,
+I look at its neighbors. Okay?
+So for node 1. It has two neighbors. Th, it has three neighbors. Node 0. Node 3. And node 2. Okay? So I look at node 1. It has three neighbors. But these two neighbors their
+distances has been computed. Okay? They have been computed already so
+I am done. Now I look at, at nodes for the which then the,
+the distance has not been computed yet. Now. What is the distance
+to node 2 from node 0? I know that I can get to node 1,
+from node 0 in one step, right? So the distance from 0 to 1 is 1. Node 2 is away from 0 by 1 edge
+from node 1, so I can take the length of the path to 1, add to it 1
+and I will get the distance to node 2. [SOUND] Okay.
+So I can think of the distance to node 2 is the distance to node 1 plus one. Because 2 is a neighbor of 1. But what is the distance
+to node 1 if there's 1. So it is 2. Okay. Now, as I said, 3 is also a neighbor of 1,
+and I can say that d3 is d1 plus one, which will give it 2,
+but 2 is larger than the distance that they already have computed and
+I don't need to update it, okay? So we do, we do this. Node 3 has, now, we,
+we are done with node 1, we are done with all
+the neighbors of node 1. We go to node 3 that we have already
+processed, and I look at its neighbors. They have already been processed,
+their distances have been computed. I look at neigh,
+at node 4 this the distance to its neighbor 0 is already computed,
+we don't already have to, to update it. And it has this neighbor 2, the distance
+have been computed from node 0. We have another node, node 5, which is,
+[SOUND] we need to compute it's distance. The, the distance to 5 is
+that I can go through 4, through distance, [SOUND] from 0 to 4,
+plus 1 more edge, right? Which is 1 plus 1, which is 2. Okay. And, this way,
+I have dealt with these at layer 2, okay. And, given this spec,
+specific graph, I am done actually. The algorithm is done. So we, we, we traversed the graph in,
+in, in the in layers. At layer 0, we deal with
+the source node that we specified. To, to compute distances from. At layer 1 all the notes that are,
+that are neighbors of the original node. At layer 2, all the neighbors
+of the neighbors and so on. Okay? This kind of algorithm, that looks at,
+at the node, then at all it's neighbors. Then for
+each neighbor at all its neighbors. This is known as, breadth [SOUND] first search or BFS. Okay? This is a very, famous algorithm for
+graph exploration or traversing graphs. That works in the breadth-first manner. The, the the reason we call it
+breadth-first is that when we look at the node we al,
+always look at the neighbors of that node before we move from
+this node to its neighbors. Okay? So, a breadth-first search algorithm
+is going to explore the graph. And while exploring, the graphic it can
+update these values of these djs and give us the distances, okay? Now, [COUGH] this,
+this is how the algorithm works and it's easier to describe, but will before
+we go to the, go the point where we write the algorithm, we have to pay
+attention to a few details here. So, the first detail that we have
+to pay attention to is, when I, when we compute the distance d0, then we
+started looking at, at the neighbors. I said okay, we have d1 is 1,
+d3 is 1, d4 is 1. When we were done we
+said let's go to layer 2. How did we go to layer 2? Now we went to the neighbors of 1, then
+the neighbors of 3, then the neighbors of 4, in this order, because I compute the
+distance to 1 first, then to 3, then to 4. When I want it to go to layer 2,
+I want it to go to 1, and it's neighbors, to 3, look at it's
+neighbors, to 4, look at it's neighbors. So how do I keep track
+of this information? How do I keep track. Of this, order, that I was the 1 then
+3 then 4, so that next time when I go to layer 2, I go to neighbors of 1,
+then neighbors of 3, then neighbors of 4. So this is where, the, the concept of
+data structure has come into the picture, that we have to use some sort
+of data structure that is going. To, to allow me to save this
+information and keep, keep track about how the nodes were visited, so that the
+next time I look at their neighbors for the next layer, I also visit the neighbors
+of nodes in the right order. So, let's look again at this case. When I visit node 0,
+after that I look at it's neighbors. I looked at node 1, then 3,
+then 4, so I want once I, once I computed the d1, I want to put
+it in a data structure such that, this is node 1 here, then I,
+put 3, then I put 4 here. And next time when I look at for layer 2, I need to look at this node
+first, then this, then this, okay? So, remember what happened here. I insert, I insert node 1, then I insert
+node 3, then I insert node 4, okay? So when I, when I am done with this, I have this list of nodes that
+has these three nodes here. That next time, when I go to layer 2,
+I can come back here and say okay, now, let's look at node 1,
+then node 3, then ne, node 4. Okay? So, the way we, we deal with this kind of,
+of algorithm, or with this type of data structure is that, we have this type of list that we are,
+we are going to, to have. I'm going to have two endpoints to it. I'm going to label them as the head,
+[SOUND] and I'm going to label this as the tail, okay? And every time I see, when, when I'm
+processing the neighbors of a given node, I'm going to add,
+once I compute the distance to a neighbor, I'm going to add that
+neighbor to this list. In such a way that I maintain
+the order in which they were visited. So the way to do this is always
+to insert a node and a tail. Okay?
+So I insert one. So, if I want to work through this. [SOUND] In the beginning,
+the list was, empty. It had nothing.
+So the head. [SOUND] N tail are pointing
+to the same place. So I, I, I encounter node 1 first. I said insert it at the whatever
+the tail is pointing to. It's here so it becomes,
+[SOUND] node node 1 here. Sorry, node 1. Now this is the head. And this is the tail now,
+the tail moves to the right. When I see node 3,
+I add now node 3 here at the tail and I move the tail to the right. [SOUND] When I see node 4, I, put node 4 here and I move the tail here. [SOUND] Okay. So this is how we grow this list. Now this list,
+is maintained in a very specific way, that, I always add things at the tail. When I want, when next,
+time when I come to process la, layer 2, I want to start with node 1,
+then 3, then 4, so I look at the neighbors of 1, then the
+neighbors of 3, then the neighbors of 4. So then I come and
+access things from the head side, okay. So the next time, when I want to,
+when I want to process at layer 2, I want to look at all the neighbors of,
+of of node 1, which is exists at the head. So I can look at this, deal with all
+its neighbors, I get done with it, and I move the head. [SOUND] It's here. I deal with this.
+I get done with it. I move ahead and so on. But notice also that when I da,
+when I deal with, when I process node 1, I have to add all the neighbors that
+have not been processed to the queue. So once I'm done with 1,
+also node 2 was added at the tail. [SOUND] And the tail moved, [SOUND] okay? Then when we process 3, 3 has no neighbors
+that have not been processed, so we process it and
+we move the head without adding anything. [SOUND] Then, we process node 4. It has only one neighbor that
+has not been processed yet. We added it to the, to the tail,
+and we move the head here, and we move the tail to the right. [SOUND]. Okay. And we keep, proceeding like this. This type of list,
+where we add things to the tail. And we remove things from
+the head is known as a queue. Okay. So this data structure is called a queue. [SOUND] And every probably you have, you
+have seen a queue you have been in a queue when you go to a cafeteria and, and stand
+in line, the first person that shows up. Is added to the beginning of the queue. When you show up you come
+to the end of the queue. The person who gets service first is
+the one at the head of the queue and, you when you're added to the end of the
+queue your turn comes after everyone has been processed. This data structure is called a queue,
+and it is very, very essential for the, details of BFS.

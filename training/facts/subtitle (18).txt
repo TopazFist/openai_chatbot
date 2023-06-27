@@ -1,0 +1,140 @@
+Okay, so now we have analyzed
+the running time of BFS and we got to a function that is
+quadratic in the number of nodes. Again, if we look at this algorithm,
+we use this calculation here, we got to this function O of n squared,
+where n is the number of nodes. If you look at this, at this function
+carefully you will notice that m, the number of edges,
+is not playing any part in this function. Okay.
+It's not playing any part. Now let's, let's think about some some,
+some extreme cases. I'm going to raise some extreme case. Suppose I have a graph, suppose I
+have a graph that has million nodes. It has million nodes. And, again,
+I'm going to focus on an extreme case. Where I will say that this
+graph has one edge, okay? It has one edge. How long do you think BFS is going to
+take on this, on this on this graph? Is it going to take million squared? Is it going to do million
+squared operations? Or fewer than that? If you think about the algorithm
+carefully, suppose, let's just assume for simplicity, that again for
+this graph I have node 0, and all the way to the million nodes,
+and I have node 1. It is connected, but
+then nothing else is connected. Okay. So then we have,
+all the way to node 99,999. So these are all the nodes in the graph. It has only one edge, and
+I'm going to assume that it is 0 to 1. How long is this algorithm going to take? [SOUND] Is going to come and
+then do the initialization. It's going to assign,
+assign infinity to each one of them. So it's going to take on the order of
+million operations just to assign, to initialize distances. Okay?
+So it's doing million operations to assign these distances. Then, it's going to come and initialize the [SOUND] distance to 0,
+to node 0, to be 0. It's going to put node 0 on the queue and
+it's going to start working. So the first time it works it's going to
+remove node 0 from the queue and look at all it's neighbors. How many neighbors does it have? It has only node one. Okay?
+It's going to look at node 1. It's distance is not, it's infinity it's going to update
+it's distance now d1 becomes 1. What's going to do,
+now it's going to add 1 to the queue. So now when we look at it next time, what's on the queue that is node 1,
+the node number 1 is on the queue. So next time we come to this loop, the queue is not empty, we are going to
+remove node 1 from the queue. Look at its neighbors. It has only node 0. Its distance has already been computed. We are not going to do anything. We come back next time. What's going to be on the queue? Nothing. The algorithm is going to terminate and
+return. So how many operations
+has the algorithm done? Of course, it did the million operations
+to initialize distances to all, to all nodes. But then after that the number of
+operations it did was very, very small. In fact, it was proportional to the,
+to the number 1, which is one edge. Okay? So it is in this case saying that BFS
+is going to take million squared. Million squared is,
+is is a very big number right? I mean we have 12 zeroes, and again
+even with with fast computers this is basically going to say that this algorithm
+is going to take a very long time. All right? However, again for
+this case I have million nodes, and the algorithm is going to be very fast. Okay? It's going to do million operations again
+for initialization and just, one or two or three operations here to deal with
+node 1 and it's, it's done, okay. So. In other words, the n squared, the o of n
+squared running time is not very tight. It is not very tight when we
+have scenarios like this. Okay?
+When we have scenarios like this. What is this scenario? This is a scenario where the graph is
+extremely sparse, extremely sparse. It has just one edge. Okay? But, we don't have to invoke this extreme
+scenario for n square to be also not tied. I can have million edges and still the algorithm is going to do much
+fewer operations than millions squared. Okay? So, it's not that I am invoking some
+extreme case with million nodes and one edge and
+I am saying our analysis is not tied. What actually I am saying is that if you
+have a reasonable number of edges, you can still do much fewer operations, many
+fewer operations than million squared. Okay? So, this leads us to thinking about
+the algorithm differently and start thinking about how does the number
+of edges affects the running time. Or how can we analyze the running
+time with keeping the number of edges in mind, okay? Now, notice that even in this extreme
+case I could not do anything about this. I could not do anything about this. I had still to initialize
+all nodes to infinity. And. There's, this is not something that has
+anything to do with the number of edges. So now I will start thinking, reasoning
+a bit more carefully about these, and try to see, you know, how does
+the number of edge, number of edges m, factors into the running
+time of this algorithm. As I said, again, all the way to here. This is still going to be O of n. So, in that extreme case of million nodes,
+we are going to still do on the order of million operations, because going to
+be dictated by this, by this one. Now, we start thinking about these group. Instead, instead of thinking
+about you know, order of n, order of n, and let's multiply them. Let's think carefully about
+each edge in the graph, and think about this algorithm,
+what it's doing. It looks at a node then it
+looks at all its neighbors. Okay.
+Looks at a node, looks at it, at all its neighbors. Neighbors, the concept of
+neighbor is determined by edges. Node i has neighbor j if there
+is an edge between i and j. So now the edges start
+coming into the picture. Now I can start asking,
+if I think about a pair of nodes that are connected by an edge,
+i and j are connected by an edge. How many times is that edge going to
+be looked at in this algorithm? Okay? Now if we look at, at let's look at
+again this even this extreme case here. How many times is this edge
+going to be looked at? Okay? Notice that when we, when I was,
+when j was 0 and h is on. We looked at this edge here, right? Because, how did we know
+that one is a neighbor of 0? Because of this edge. So this edge was looked at once
+already when j was 0 and h was 1. Is this edge looked at again any,
+any more? The answer is yes. When j is 1,
+next time we come to the queue and remove j from the queue, when j is 1,
+one of its neighbors is 0. So h is going to j is 1, h is 0,
+we are going to look again at this edge. Or in other words, for every pair of
+nodes that are connected by an edge, how many times do we look at them? We look at them for a,
+for a pair of nodes i j. That are neighbors. We look at them twice, once when j was I. Sorry once when the first note was I and
+the second note was j. The second time when the first note
+was j and the second was I, okay. So every edge we'll look at it twice. Are we going to look at
+it anymore than that? The answer is no, because once
+you have dealt with this node, compute the distance to this node and
+you are looking at its neighbors. This has been removed
+from the queue already. Once you look at the neighbors of this and
+you are done, this is removed from the queue. You will never again reach this node. So what does that tell us? That if I have n edges,
+this loop here, this loop. All of them the, the two nested loops, are going to be
+doing on the order of m, 2m operations. Okay? So, I don't need now to look at
+n nodes times n nodes and so on. No, now I need to think about
+it that if I have ten edges, the number of operations here is going
+to be on the order of 20, 2 times 10. If I have m edges, this is now
+going to be done on the order of m. So now, using this reasoning by thinking
+about every edge how many times it is, it is used or looked at now this is,
+we can say that this is o of m. Okay? Because there was, there was actually
+when we looked at this operation here, it is true that this, we are going to do this
+n times, and there is no escape of that. We are going to do this n times. But the problem here is that n,
+we multiplied it by m, and this is not accurate because not every
+node is going to have n neighbors, n neighbors, n neighbors, or n minus 1. Note, it total all nodes
+are going to have m neighbors. Okay? Therefore, we can think
+about this as taken m. And using this analysis, now we say that
+the running time of BFS is o of m plus n. O of m plus n, okay. So using this type of analysis,
+more careful analysis, we got to a running time that is linear in the number of nodes
+and linear in the number of edges, okay. Now let's contrast the two. We have the first attempt
+we got to O of n squared, the second one we got to O of m plus n,
+okay. Again, using the extreme example I
+showed with million nodes and one edge, the running time is really going to be
+million in the order of million plus 1. On the order of million. It's not going to be on
+the order of million squared. If, when, when would these two running
+times actually be very similar? Let's think about another extreme example,
+that the graph is complete. Every pair of nodes has
+an edge between them. Then, it doesn't matter that we did
+this analysis because m is going to be actually on the order of n squared. Okay? Now, so keep,
+keep this in mind that, you know, looking at the graph,
+if the graph is very sparse, this is is the more accurate
+representation of the running time. If the graph gets to, close to,
+becomes very dense, gets close to a complete graph, this, the n squared
+becomes really the dominant term. Okay? When we look at real life applications, most interesting graphs
+that we are going to face. They are going to have actually
+more edges than n okay, because if you think about it, if you have
+the number of edges is smaller than n, this is a very sparse graph. Usually the graphs we deal
+with are not that sparse. If we have m is greater than n, then this running time here, we can
+actually simplify it and say it is O of m. So sometimes you might
+see in textbooks or, or somewhere else that the running
+time of BFS is just O of m. This you can think about it as
+when we assume that the number of edges is greater than n, then we can
+simplify this through all of them. Okay. So there is no contradiction between two,
+these two running times. Okay. Because the both of them
+are correct asymptotically. This is tighter than this. When we get to a very dense graph almost
+complete, it's going to be closer to this. But again in this case m will
+also be m squared, okay? And again, remember that when the number
+of edges is greater than the edges in north, which is in most practicable cases, we can say that the running time of the
+algorithm is linear in the number of edges
